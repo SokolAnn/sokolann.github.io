@@ -6,6 +6,7 @@ nav.contacts {
 ul.clinks {
     display: flex;
     list-style: none;
+    float: left;
 }
 
 ul.clinks li {
