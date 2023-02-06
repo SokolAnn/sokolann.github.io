@@ -1,6 +1,10 @@
-nav.contacts {
+nav.bottombar {
     display: flex;
-    align-items: left;
+    align-items: center;
+}
+
+div.contacts {
+    float: left;
 }
 
 ul.clinks {
