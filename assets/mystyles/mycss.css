@@ -1,0 +1,14 @@
+nav.contacts {
+    display: flex;
+    align-items: center;
+}
+
+ul.clinks {
+    display: flex;
+    list-style: none;
+}
+
+ul.tb-links li {
+    padding-left: 10px;
+    padding-right: 10px;
+}
