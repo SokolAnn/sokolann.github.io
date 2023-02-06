@@ -1,3 +1,3 @@
 # Anna Sokol
 
-Hello!
+Hello and this is my CV!
