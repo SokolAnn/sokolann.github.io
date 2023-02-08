@@ -18,17 +18,17 @@
 
 - The European Consortium for Political Research (ECPR) Virtual General Conference 2021.  Presentation: Assessing the impact of social movements on environmental policy change with social network analysis methodology
 
-***2020***
+**2020**
 
 - Networks in the Global World (St. Petersburg).  Presentation: The overview of environmental policy: a bibliometric approach
 
 - Sunbelt Conference (Paris).  Presentation: A bibliometric analysis of the environmental policy
 
-***2019***
+**2019**
 
 - XX April International Academic Conference On Economic And Social Development (Moscow).  Presentation: Modelling the impact of mass protests on political change by using the structural equation method
 
-***2018***
+**2018**
 
 - ECPR General Conference Hamburg (Hamburg).  Presentation: Modelling the Impact of Mass Protests on Political Change
 
