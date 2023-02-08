@@ -8,7 +8,7 @@
 
 - 5th European Conference on Social Network EUSN 2021 (Naples).  Presentation: Assessing the impact of social movements on environmental policy change with social network analysis methodology
 
-- 5th European Conference on Social Network EUSN 2021 (Naples).  Presentation: Towards a synthetic theory of policy efficiency: application of network analysis to the science, technology, and innovation policy efficiency studies*
+- 5th European Conference on Social Network EUSN 2021 (Naples).  Presentation: Towards a synthetic theory of policy efficiency: application of network analysis to the science, technology, and innovation policy efficiency studies
 
 - XXII April International Scientific Conference on Economic and Social Development (Moscow).  Presentation: The impact of environmental movements on social and policy change                  
 
