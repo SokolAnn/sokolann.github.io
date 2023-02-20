@@ -1,11 +1,13 @@
 # Publications
 
-1. Zaytsev D., Kuskova V., Khvatsky G., Sokol, A., Searching for coherence in a fragmented field: Temporal and keywords network analysis in political science. R&R in Network Science, Cambridge UP.
+1.	V. Kuskova, D. Zaytsev, G. Khvatsky, and A. Sokol, “Neural Network Modeling and What-If Scenarios: Applications for Market Development Forecasting,” in Applications in Reliability and Statistical Computing, H. Pham, Ed. Cham: Springer International Publishing, 2023, pp. 271–288. doi: 10.1007/978-3-031-21232-1_14.
 
-2. Kuskova V., Zaytsev D., Khvatsky G., Sokol, A., Kamalov, R. Expanding the boundaries of interdisciplinary field: Contribution of Network Science journal to the development of network science. R&R in Network Science, Cambridge UP.
+2.	D. G. Zaytsev, V. V. Kuskova, G. S. Khvatsky, and A. A. Sokol, “Searching for coherence in a fragmented field: Temporal and keywords network analysis in political science,” Net Sci, pp. 1–30, Feb. 2023, doi: 10.1017/nws.2022.39.
 
-3. Kuskova V., Zaytsev D., Sokol A., Khvatsky G. Neural Network Modeling and What-if Scenarios: Applications to Various-Term Sales Forecasts, in: Proceedings of the 26th ISSAT Conference on Reliability and Quality in Design. International Society of Science and Applied Technologies, 2021. P. 122-126.
+3.	V. V. Kuskova, D. G. Zaytsev, G. S. Khvatsky, A. A. Sokol, M. D. Vorobeva, and R. A. Kamalov, “Expanding the boundaries of interdisciplinary field: Contribution of Network Science journal to the development of network science,” Network Science, pp. 1–33, 2023.
 
-4. Khvatsky G., Zaytsev D., Kuskova V., Sokol A. Computational Tools of Media Analysis for Corporate Policy Effectiveness Evaluation: Models and Their Reliability. In Reliability and Maintainability Assessment of Industrial Systems - Assessment of Advanced Engineering Problems, 2022
+4.	G. S. Khvatsky, D. G. Zaytsev, V. V. Kuskova, and A. A. Sokol, “Computational Tools of Media Analysis for Corporate Policy Effectiveness Evaluation: Models and Their Reliability,” in Reliability and Maintainability Assessment of Industrial Systems: Assessment of Advanced Engineering Problems, Springer, 2022, pp. 51–71.
 
-5. Zaytsev D., Galina A., Sokol A. Cross-National Comparison of Protest Publics' Roles as Drivers of Change: From Clusters to Models, in: Protest Publics. Toward a New Concept of Mass Civic Action / Resp. ed: N. Y. Belyaeva, D. Zaytsev, V. A. Albert. Switzerland : Springer, 2019. doi P. 157-182. 
+5.	K. Valentina, Z. Dmitry, S. Anna, and K. Gregory, “Neural network modeling and what-if scenarios: Applications to various-term sales forecasts,” 2021, pp. 122–126. Accessed: Feb. 20, 2023. [Online]. Available: https://elibrary.ru/item.asp?id=47041172
+
+6.	D. G. Zaytsev, A. I. Galina, and A. A. Sokol, “Cross-National Comparison of Protest Publics’ Roles as Drivers of Change: From Clusters to Models,” Protest Publics: Toward a New Concept of Mass Civic Action, pp. 157–182, 2019.
