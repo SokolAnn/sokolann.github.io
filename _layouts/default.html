@@ -1,48 +1,776 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: "en-US" }}">
-  <head>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-
-{% seo %}
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#157878">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
-    <link rel="stylesheet" href="/assets/mystyles/mycss.css">
-    {% include head-custom.html %}
-  </head>
-  <body>
-    <header class="page-header" role="banner">
-      <h1 class="project-name">Anna Sokol</h1>
-      <h2 class="project-tagline">My personal page</h2>
-      
-      <a href="/pages/publications" class="btn">Publications</a>
-      <a href="/pages/conferences" class="btn">Conferences</a>
-      <a href="/pages/cv/CV_final.pdf" class="btn">CV</a>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anna Sokol - Researcher & Academic</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Reset */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        img, picture, video, canvas, svg {
+            display: block;
+            max-width: 100%;
+        }
+        
+        input, button, textarea, select {
+            font: inherit;
+        }
+        
+        /* Design System */
+        :root {
+            /* Enhanced Ethereal Academic Color Palette */
+            --midnight-academic: #0f1419;
+            --ethereal-blue: #2563eb;
+            --sage-gray: #475569;
+            --cloud-white: #f8fafc;
+            --mint-accent: #10b981;
+            --deep-blue: #1e40af;
+            --light-blue: #60a5fa;
+            --white: #ffffff;
+            --gray-900: #0f172a;
+            --gray-800: #1e293b;
+            --gray-700: #334155;
+            --gray-600: #475569;
+            --gray-500: #64748b;
+            --gray-400: #94a3b8;
+            --gray-300: #cbd5e1;
+            --gray-200: #e2e8f0;
+            --gray-100: #f1f5f9;
+            --gray-50: #f8fafc;
+            
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-2xl: 4rem;
+            --space-3xl: 5rem;
+            
+            /* Typography */
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-size-xs: 0.875rem;
+            --font-size-sm: 1rem;
+            --font-size-md: 1.125rem;
+            --font-size-lg: 1.25rem;
+            --font-size-xl: 1.5rem;
+            --font-size-2xl: 2rem;
+            --font-size-3xl: 2.5rem;
+            --font-size-4xl: 3rem;
+            --font-size-hero: clamp(3rem, 8vw, 6rem);
+            
+            /* Borders */
+            --border-radius-sm: 0.5rem;
+            --border-radius-md: 1rem;
+            --border-radius-lg: 1.25rem;
+            --border-radius-full: 9999px;
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
+            --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.25);
+            
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, var(--midnight-academic) 0%, var(--gray-900) 100%);
+            --gradient-accent: linear-gradient(135deg, var(--ethereal-blue) 0%, var(--deep-blue) 100%);
+            --gradient-text: linear-gradient(135deg, var(--white) 0%, var(--gray-100) 100%);
+            --gradient-bg: linear-gradient(135deg, var(--midnight-academic) 0%, var(--gray-900) 25%, var(--gray-800) 75%, var(--gray-700) 100%);
+            --gradient-mint: linear-gradient(135deg, var(--mint-accent) 0%, var(--ethereal-blue) 100%);
+            --gradient-card: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            
+            /* Transitions */
+            --transition-fast: 0.15s ease;
+            --transition-normal: 0.3s ease;
+            --transition-slow: 0.5s ease;
+        }
+        
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            
+            .animated-bg {
+                animation: none !important;
+            }
+            
+            .floating-element {
+                animation: none !important;
+            }
+        }
+        
+        /* Base Styles */
+        body {
+            font-family: var(--font-family);
+            background-color: var(--midnight-academic);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+        
+        /* Layout Components */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+        
+        .section {
+            padding: var(--space-3xl) 0;
+        }
+        
+        /* Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: var(--gradient-bg);
+            background-size: 400% 400%;
+            will-change: background-position;
+        }
+        
+        @media (prefers-reduced-motion: no-preference) {
+            .animated-bg {
+                animation: gradientShift 20s ease infinite;
+            }
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        /* Glass Effects */
+        .glass-card {
+            background: var(--gradient-card);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius-lg);
+            padding: var(--space-xl);
+            margin: var(--space-sm) 0;
+            transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        .glass-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border-color: rgba(37, 99, 235, 0.3);
+        }
+        
+        /* Support fallback for older browsers */
+        @supports not (backdrop-filter: blur(20px)) {
+            .glass-card {
+                background: var(--gray-100);
+            }
+        }
+        
+        /* Typography */
+        .hero-title {
+            font-size: var(--font-size-hero);
+            font-weight: 700;
+            margin-bottom: var(--space-sm);
+            color: var(--white);
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-subtitle {
+            font-size: var(--font-size-xl);
+            margin-bottom: var(--space-lg);
+            color: var(--gray-300);
+            font-weight: 400;
+        }
+        
+        .section-title {
+            font-size: var(--font-size-3xl);
+            text-align: center;
+            margin-bottom: var(--space-xl);
+            color: var(--white);
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--gradient-accent);
+            border-radius: 2px;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: var(--space-md) var(--space-xl);
+            background: var(--gradient-accent);
+            border: 1px solid var(--ethereal-blue);
+            border-radius: var(--border-radius-full);
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: var(--font-size-sm);
+            transition: all var(--transition-normal);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--mint-accent) 0%, var(--ethereal-blue) 100%);
+            transition: left var(--transition-normal);
+            z-index: -1;
+        }
+        
+        .btn:hover::before {
+            left: 0;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+        }
+        
+        .btn:focus {
+            outline: 2px solid var(--mint-accent);
+            outline-offset: 2px;
+        }
+        
+        /* Navigation */
+        .nav-buttons {
+            display: flex;
+            gap: var(--space-sm);
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: var(--space-lg);
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Floating Elements */
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .floating-element {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: var(--border-radius-full);
+            background: var(--gradient-accent);
+            opacity: 0.05;
+            will-change: transform;
+        }
+        
+        @media (prefers-reduced-motion: no-preference) {
+            .floating-element {
+                animation: float 8s ease-in-out infinite;
+            }
+        }
+        
+        .floating-element:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .floating-element:nth-child(2) {
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+        
+        .floating-element:nth-child(3) {
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        /* Profile Section */
+        .profile-section {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: var(--space-xl);
+            align-items: center;
+            margin-top: var(--space-xl);
+        }
+        
+        .profile-image {
+            width: 100%;
+            max-width: 300px;
+            height: 300px;
+            border-radius: var(--border-radius-full);
+            object-fit: cover;
+            border: 3px solid var(--ethereal-blue);
+            box-shadow: var(--shadow-2xl);
+            justify-self: center;
+        }
+        
+        .profile-content h3 {
+            font-size: var(--font-size-2xl);
+            margin-bottom: var(--space-sm);
+            color: var(--white);
+            font-weight: 600;
+            position: relative;
+        }
+        
+        .profile-content h3::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: var(--gradient-accent);
+            border-radius: 1px;
+        }
+        
+        .profile-content p {
+            font-size: var(--font-size-md);
+            color: var(--gray-300);
+            margin-bottom: var(--space-md);
+            line-height: 1.7;
+        }
+        
+        /* Achievements Grid */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-xl);
+        }
+        
+        .achievement-card {
+            background: var(--gradient-card);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius-md);
+            padding: var(--space-xl);
+            text-align: center;
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .achievement-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+            transition: left var(--transition-normal);
+        }
+        
+        .achievement-card:hover::before {
+            left: 0;
+        }
+        
+        .achievement-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(37, 99, 235, 0.3);
+        }
+        
+        .achievement-card:focus-within {
+            outline: 2px solid var(--mint-accent);
+            outline-offset: 2px;
+        }
+        
+        .achievement-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto var(--space-md);
+            background: var(--gradient-accent);
+            border-radius: var(--border-radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--font-size-xl);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .achievement-card h3 {
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--space-sm);
+            color: var(--white);
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .achievement-card p {
+            color: var(--gray-300);
+            font-size: var(--font-size-sm);
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Footer */
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-sm);
+            flex-wrap: wrap;
+            margin-top: var(--space-xl);
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            padding: var(--space-sm) var(--space-md);
+            background: var(--gradient-card);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius-lg);
+            color: var(--white);
+            text-decoration: none;
+            font-size: var(--font-size-xs);
+            transition: all var(--transition-normal);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .social-link:hover {
+            transform: translateY(-3px);
+            background: var(--gradient-accent);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+            border-color: rgba(37, 99, 235, 0.3);
+        }
+        
+        .social-link:focus {
+            outline: 2px solid var(--mint-accent);
+            outline-offset: 2px;
+        }
+        
+        .social-icon {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+        
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: fixed;
+            bottom: var(--space-lg);
+            left: 50%;
+            transform: translateX(-50%);
+            transition: opacity var(--transition-normal);
+            z-index: 10;
+        }
+        
+        @media (prefers-reduced-motion: no-preference) {
+            .scroll-indicator {
+                animation: bounce 2s infinite;
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+        
+        .scroll-arrow {
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--ethereal-blue);
+            border-radius: var(--border-radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gray-50);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: var(--ethereal-blue);
+            font-size: var(--font-size-md);
+            cursor: pointer;
+            transition: all var(--transition-normal);
+        }
+        
+        .scroll-arrow:hover {
+            background: var(--gradient-accent);
+            color: var(--white);
+            transform: scale(1.1);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 var(--space-sm);
+            }
+            
+            .section {
+                padding: var(--space-2xl) 0;
+            }
+            
+            .profile-section {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: var(--space-lg);
+            }
+            
+            .nav-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+            
+            .hero-subtitle {
+                font-size: var(--font-size-lg);
+            }
+            
+            .section-title {
+                font-size: var(--font-size-2xl);
+            }
+            
+            .achievements-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-social {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .social-link {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: clamp(2rem, 12vw, 4rem);
+            }
+            
+            .glass-card {
+                padding: var(--space-sm);
+            }
+            
+            .achievement-card {
+                padding: var(--space-sm);
+            }
+        }
+        
+        /* Large screens */
+        @media (min-width: 1200px) {
+            .container {
+                padding: 0 var(--space-xl);
+            }
+            
+            .section {
+                padding: var(--space-3xl) 0;
+            }
+        }
+        
+        /* High contrast mode */
+        @media (prefers-contrast: high) {
+            .glass-card {
+                background: var(--deep-blue);
+                border: 2px solid var(--ethereal-blue);
+            }
+            
+            .btn {
+                background: var(--deep-blue);
+                border: 2px solid var(--ethereal-blue);
+            }
+        }
+        
+        /* Dark mode support (if needed) */
+        @media (prefers-color-scheme: dark) {
+            /* Already dark theme, but can add specific overrides if needed */
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-bg" aria-hidden="true"></div>
     
-    </header>
-
-    <main id="content" class="main-content" role="main">
-      {{ content }}
-
-      <footer class="site-footer">
-        <nav class="bottombar">
-          <div class="contacts">
-          <ul class="clinks">
-            <li><a href="https://www.facebook.com/SokolAnya" target="_blank">Facebook</a></li>
-            <li><a href="https://twitter.com/Sokol_Anna_A" target="_blank">Twitter</a></li>
-            <li><a>Instagram</a></li>
-            <li><a>LinkedIN</a></li>
-            <li><a href="https://github.com/SokolAnn" target="_blank">GitHub</a></li>
-            <li><a href="https://scholar.google.com/citations?user=wrEaQEQAAAAJ&hl=ru" target="_blank">Google Scholar</a></li>
-            <li><a href="https://orcid.org/0000-0001-7804-9216" target="_blank">ORCID</a></li>
-            <li><a href="mailto:asokol@nd.edu">Email</a></li>
-          </ul>
-        </div>
-        </nav>
-      </footer>
+    <div class="floating-elements" aria-hidden="true">
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+    </div>
+    
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Anna Sokol</h1>
+                    <p class="hero-subtitle">Researcher • Academic • Scholar</p>
+                    <nav class="nav-buttons" aria-label="Main navigation">
+                        <a href="#about" class="btn">About Me</a>
+                        <a href="/pages/publications" class="btn">Publications</a>
+                        <a href="/pages/conferences" class="btn">Conferences</a>
+                        <a href="/pages/cv/CV_final.pdf" class="btn" target="_blank" rel="noopener">Download CV</a>
+                    </nav>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <div class="scroll-arrow" tabindex="0" role="button" aria-label="Scroll to content">↓</div>
+            </div>
+        </section>
+        
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="glass-card">
+                    <div class="profile-section">
+                        <div>
+                            <img src="https://via.placeholder.com/300x300/1a1a2e/d4af37?text=Anna+Sokol" 
+                                 alt="Anna Sokol - Academic profile photo" 
+                                 class="profile-image"
+                                 loading="lazy">
+                        </div>
+                        <div class="profile-content">
+                            <h3>Welcome to my academic journey</h3>
+                            <p>I'm passionate about advancing knowledge through rigorous research and academic excellence. My work focuses on innovative approaches to complex problems in my field.</p>
+                            <p>With a commitment to scholarly pursuit and collaboration, I strive to contribute meaningfully to the academic community and beyond.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section" aria-labelledby="achievements-title">
+            <div class="container">
+                <h2 id="achievements-title" class="section-title">Academic Focus</h2>
+                <div class="achievements-grid">
+                    <article class="achievement-card">
+                        <div class="achievement-icon" aria-hidden="true">📚</div>
+                        <h3>Publications</h3>
+                        <p>Peer-reviewed articles and research contributions advancing knowledge in my field</p>
+                    </article>
+                    <article class="achievement-card">
+                        <div class="achievement-icon" aria-hidden="true">🎤</div>
+                        <h3>Conferences</h3>
+                        <p>International presentations and academic collaborations with global research community</p>
+                    </article>
+                    <article class="achievement-card">
+                        <div class="achievement-icon" aria-hidden="true">🎓</div>
+                        <h3>Research</h3>
+                        <p>Innovative studies and groundbreaking discoveries contributing to academic excellence</p>
+                    </article>
+                </div>
+            </div>
+        </section>
     </main>
-  </body>
-</html>
+    
+    <footer class="section">
+        <div class="container">
+            <nav class="footer-social" aria-label="Social media and professional links">
+                <a href="https://www.facebook.com/SokolAnya" class="social-link" target="_blank" rel="noopener">
+                    <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                    Facebook
+                </a>
+                <a href="https://twitter.com/Sokol_Anna_A" class="social-link" target="_blank" rel="noopener">
+                    <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                    </svg>
+                    Twitter
+                </a>
+                <a href="https://github.com/SokolAnn" class="social-link" target="_blank" rel="noopener">
+                    <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 0C5.374 0 0 5.373 0 12 0 17.302 3.438 21.8 8.207 23.387c.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    GitHub
+                </a>
+                <a href="https://scholar.google.com/citations?user=wrEaQEQAAAAJ&hl=ru" class="social-link" target="_blank" rel="noopener">
+                    <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 100 14 7 7 0 000-14z"/>
+                    </svg>
+                    Google Scholar
+                </a>
+                <a href="https://orcid.org/0000-0001-7804-9216" class="social-link" target="_blank" rel="noopener">
+                    <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .
