@@ -159,8 +159,8 @@
     .contact{background:var(--accent);color:#fff;text-align:center;padding:28px 22px}
     .contact h3{font:800 24px/1.2 "Playfair Display",serif;margin:0 0 14px}
     .actions{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
-    .actions a{border:2px solid #fff;color:#fff;text-decoration:none;font:600 14px/1 Inter,system-ui,sans-serif;padding:10px 18px}
-    .actions a:hover{background:#fff;color:var(--accent)}
+    $1border:1px solid rgba(255,255,255,.28);color:#fff;text-decoration:none;font:600 14px/1 Inter,system-ui,sans-serif;padding:12px 18px;border-radius:9999px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));box-shadow:0 6px 22px rgba(0,0,0,.12), inset 0 0 0 1px rgba(255,255,255,.08);backdrop-filter:blur(3px);transition:transform .25s var(--ease),box-shadow .25s var(--ease),background .25s var(--ease)}
+    $1background:#fff;color:var(--accent);transform:translateY(-1px);box-shadow:0 10px 30px rgba(0,0,0,.18)}
 
     footer{border-top:3px double var(--rule);background:#fbfbfb;text-align:center;padding:18px 22px;font:500 12px/1.6 Inter,system-ui,sans-serif;color:#666}
 
@@ -190,7 +190,24 @@
       .caption,.byline{color:#a1a1aa}
       .contact{background:#0f1e33}
     }
-  </style>
+  /* Magazine micro‑interactions (Vogue/GQ‑inspired, subtle) */
+:root{ --ease:cubic-bezier(.2,.7,0,.98); --dur:.7s; }
+.reveal{opacity:0;transform:translateY(10px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease)}
+.reveal.is-visible{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){.reveal,.card,.hero figure img,.nav a::after{transition:none!important;animation:none!important}}
+.nav a{position:relative}
+.nav a::after{content:"";position:absolute;left:0;bottom:-2px;height:1px;width:0;background:currentColor;transition:width .35s var(--ease)}
+.nav a:hover::after,.nav a:focus-visible::after{width:100%}
+.card{transition:transform .45s var(--ease),box-shadow .45s var(--ease);will-change:transform}
+.card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,.08)}
+.hero figure img{will-change:transform}
+.mast .name{animation:titlePop .8s var(--ease) both}
+.hero h2{animation:fadeUp .8s var(--ease) .05s both}
+.hero .deck{animation:fadeUp .8s var(--ease) .12s both}
+.lead{animation:fadeUp .9s var(--ease) .2s both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px);letter-spacing:.02em}to{opacity:1;transform:none;letter-spacing:0}}
+@keyframes titlePop{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+</style>
   <link rel="canonical" href="https://sokolann.github.io/">
   <meta property="og:url" content="https://sokolann.github.io/">
   <meta name="theme-color" content="#002147">
@@ -207,6 +224,8 @@
       <div>
         <a href="mailto:asokol@nd.edu">Email</a>
         <span aria-hidden="true">·</span>
+        <a href="https://scholar.google.com/citations?hl=ru&user=wrEaQEQAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener">Scholar</a>
+        <span aria-hidden="true">·</span>
         <a href="https://github.com/SokolAnn" target="_blank" rel="noopener">GitHub</a>
         <span aria-hidden="true">·</span>
         <a href="https://www.linkedin.com/in/sokolann/" target="_blank" rel="noopener">LinkedIn</a>
@@ -218,7 +237,6 @@
       <div class="kicker">4th‑Year PhD Candidate</div>
       <h1 class="name">ANNA&nbsp;SOKOL</h1>
       <div class="edition">
-        <span>Notre Dame, Indiana</span>
         <span>Advisor: Prof. Nitesh Chawla</span>
         <span>PhD since 2022</span>
       </div>
@@ -236,8 +254,9 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
-
-
+    <main id="main">
+    <!-- About rail -->
+    
 
     <!-- Hero -->
     <section class="hero" id="research">
@@ -245,12 +264,13 @@
         <div class="byline">Dissertation · AI for Social Good</div>
         <h2>Large Language Models for Scientific Discovery</h2>
         <div class="deck">Conservation, truth‑commission archives, and reliable evaluation.</div>
-        <p class="lead measure">I study, build, and evaluate practical tools with Prof. Nitesh Chawla. I help wildlife scientists find evidence, guide readers through Colombia’s Truth Commission archives, and make model evaluation match real work.</p>
+        <p class="lead measure">My dissertation studies how to understand and deploy large language models in real scientific settings. We integrate LLMs with knowledge graphs, examine how people use them in practice, and test how knowledge graphs can improve reasoning, retrieval, and usefulness for applied research. I study, build, and evaluate practical tools with Prof. Nitesh Chawla. I help wildlife scientists find evidence, guide readers through Colombia’s Truth Commission archives, and make model evaluation match real work.</p>
         <aside class="pull" aria-label="pull quote"><q>Care first. Then models.</q></aside>
       </div>
       <figure>
         <picture>
-          <source type="image/jpg" srcset="photo_2025-08-22_14-35-15.jpg" />
+
+          <source type="image/jpeg" srcset="photo_2025-08-22_14-35-15.jpg" />
           <img
             src="photo_2025-08-22_14-35-15.jpg" width="963" height="1280"
             srcset="photo_2025-08-22_14-35-15.jpg 1024w, photo_2025-08-22_14-35-15.jpg 1536w, photo_2025-08-22_14-35-15.jpg 2048w"
@@ -262,10 +282,16 @@
       </figure>
     </section>
 
-    <!-- Dissertation -->
-    <section class="section" id="dissertation">
-      <h3>Dissertation</h3>
-      <p class="measure">My dissertation studies how to understand and deploy large language models in real scientific settings. We integrate LLMs with knowledge graphs, examine how people use them in practice, and test how knowledge graphs can improve reasoning, retrieval, and usefulness for applied research.</p>
+
+
+    <!-- Education -->
+    <section class="section" id="education">
+      <h3>Education</h3>
+      <ul class="list">
+        <li>Ph.D., Computer Science — University of Notre Dame · 2022–2027</li>
+        <li>M.A., Sociology — Higher School of Economics · 2016–2018</li>
+        <li>B.A., Sociology — Vladimir State University · 2012–2016</li>
+      </ul>
     </section>
 
     <!-- Research highlights -->
@@ -299,14 +325,19 @@
         <article class="card"><h4>Conservation Assistant</h4><p>Evidence retrieval for wildlife research. <a href="#">demo</a></p></article>
       </div>
     </section>
-
     <section class="section" id="news">
       <h3>Latest News</h3>
       <ul class="list">
+        <li><time datetime="2025">2025</time> — NAACL 2025, Albuquerque, NM.</li>
+        <li><time datetime="2025">2025</time> — WSDM 2025 paper: “Ventana a la Verdad”.</li>
+        <li><time datetime="2025">2025</time> — AAAI 2025, Philadelphia, PA.</li>
+        <li><time datetime="2025">2025</time> — Doctoral Forum, SIAM SDM25.</li>
         <li><time datetime="2025">2025</time> — Notre Dame / IBM Technology Ethics Lab Fellows announced. <a href="https://ethics.nd.edu/news-and-events/news/2025-2026-notre-dameibm-technology-ethics-lab-fellows-announced/" target="_blank" rel="noopener">Read</a></li>
+        <li><time datetime="2025">2025</time> — DCU Business: Notre Dame–IBM Technology Ethics Lab awards nearly $1M to collaborative projects. <a href="https://business.dcu.ie/notre-dame-ibm-technology-ethics-lab-awards-nearly-1000000-to-build-collaborative-projects/" target="_blank" rel="noopener">Read</a></li>
         <li><time datetime="2025">2025</time> — Graduate Justice Fellows cohort. <a href="https://socialconcerns.nd.edu/current-graduate-justice-fellows/" target="_blank" rel="noopener">Read</a></li>
         <li><time datetime="2025">2025</time> — Graduate Scholar Spotlight: Lucy Family Institute. <a href="https://lucyinstitute.nd.edu/people/graduate-scholars/graduate-scholar-spotlights/graduate-scholar-spotlight-anna-sokol/" target="_blank" rel="noopener">Read</a></li>
         <li><time datetime="2024">2024</time> — Lucy Graduate Scholars cohort. <a href="https://lucyinstitute.nd.edu/people/graduate-scholars/2023-2025-lucy-graduate-scholars-cohort/anna-sokol/" target="_blank" rel="noopener">Read</a></li>
+        <li><time datetime="2024">2024</time> — ADSA 2024 Annual Meeting, University of Michigan.</li>
         <li><time datetime="2024">2024</time> — Legacy Project — People. <a href="https://legacyproject.nd.edu/about/people/" target="_blank" rel="noopener">Read</a></li>
       </ul>
     </section>
@@ -323,7 +354,50 @@
         <li class="pub"><span class="n">6</span><div class="body"><div class="title">Searching for Coherence in a Fragmented Field: Temporal and Keywords Network Analysis in Political Science</div><div class="meta">D. G. Zaytsev, V. V. Kuskova, G. S. Khvatsky, <strong>A. A. Sokol</strong> — Network Science · 2023</div></div></li>
         <li class="pub"><span class="n">7</span><div class="body"><div class="title">Expanding the Boundaries of Interdisciplinary Field: Contribution of Network Science Journal</div><div class="meta">V. V. Kuskova, D. G. Zaytsev, G. S. Khvatsky, <strong>A. A. Sokol</strong>, M. D. Vorobeva, R. A. Kamalov — Network Science · 2023</div></div></li>
         <li class="pub"><span class="n">8</span><div class="body"><div class="title">Computational Tools of Media Analysis for Corporate Policy Effectiveness Evaluation</div><div class="meta">G. S. Khvatsky, D. G. Zaytsev, V. V. Kuskova, <strong>A. A. Sokol</strong> — Reliability and Maintainability Assessment of Industrial Systems, Springer · 2022</div></div></li>
-        <li class="pub"><span class="n">9</span><div class="body"><div class="title">Cross‑National Comparison of Protest Publics' Roles as Drivers of Change</div><div class="meta">D. G. Zaytsev, A. I. Galina, <strong>A. A. Sokol</strong> — Protest Publics: Toward a New Concept of Mass Civic Action · 2019</div></div></li>
+        <li class="pub"><span class="n">9</span><div class="body"><div class="title">Neural network modeling and what‑if scenarios: Applications to various‑term sales forecasts</div><div class="meta">K. Valentina, Z. Dmitry, S. Anna, K. Gregory — Proceedings of the 26th ISSAT International Conference on Reliability and Quality in Design · 2021</div></div></li>
+        <li class="pub"><span class="n">10</span><div class="body"><div class="title">Cross‑National Comparison of Protest Publics' Roles as Drivers of Change</div><div class="meta">D. G. Zaytsev, A. I. Galina, <strong>A. A. Sokol</strong> — Protest Publics: Toward a New Concept of Mass Civic Action · 2019</div></div></li>
+      </ul>
+    </section>
+
+    <!-- Conferences -->
+    <section class="section" id="conferences">
+      <h3>Conferences</h3>
+      <ul class="list">
+        <li><strong>NAACL 2025</strong> — Albuquerque, NM, USA — 2025</li>
+        <li><strong>Doctoral Forum, SIAM SDM25</strong> — 2025</li>
+        <li><strong>AAAI 2025</strong> — Philadelphia, PA, USA · 2025</li>
+        <li><strong>ADSA 2024</strong> — University of Michigan, Ann Arbor, MI 
+        <li><strong>CODS–COMAD 2024</strong> — Jodhpur, India · 2024</li>
+        <li><strong>Sunbelt 2023</strong> — Portland, OR, USA</li>
+        <li><strong>APSA 2022</strong> — Montreal, Canada</li>
+        <li><strong>EUSN 2021</strong> — Naples, Italy</li>
+        <li><strong>XXII April Conf.</strong> — Moscow, Russia · 2021</li>
+        <li><strong>IPSA World Congress 2021</strong> — Lisbon, Portugal</li>
+        <li><strong>ECPR 2021</strong> — Virtual</li>
+        <li><strong>Networks in the Global World 2020</strong> — St. Petersburg, Russia</li>
+        <li><strong>Sunbelt 2020</strong> — Paris, France</li>
+        <li><strong>XX April Conf. 2019</strong> — Moscow, Russia</li>
+        <li><strong>ECPR General Conference 2018</strong> — Hamburg, Germany</li>
+        <li><strong>Sunbelt 2018</strong> — Utrecht, Netherlands</li>
+        <li><strong>XIX April Conf. 2018</strong> — Moscow, Russia</li>
+      </ul>
+    </section>
+
+    <!-- Academic Appointments -->
+    <section class="section" id="appointments">
+      <h3>Academic Appointments</h3>
+      <ul class="list">
+        <li><strong>Graduate Research & Teaching Assistant</strong> — DIAL Laboratory, University of Notre Dame · 2022–present</li>
+        <li><strong>Program Deputy Academic Supervisor, MDNA</strong> — International Laboratory for Applied Network Research, HSE · 2021–2022</li>
+        <li><strong>Research Assistant</strong> — International Laboratory for Applied Network Research, HSE · 2017–2020</li>
+      </ul>
+    </section>
+
+    <!-- Academic Internship -->
+    <section class="section" id="internships">
+      <h3>Academic Internship</h3>
+      <ul class="list">
+        <li>Open Research Laboratory — University of Illinois Urbana–Champaign · Spring 2022</li>
       </ul>
     </section>
 
@@ -331,9 +405,13 @@
     <section class="section" id="teaching">
       <h3>Teaching & Academic Service</h3>
       <ul class="list">
+        <li><strong>Course Instructor:</strong> Introduction to Analytical Programming — HSE (2022)</li>
+        <li><strong>Course Instructor:</strong> Introduction to Data Analytics — HSE (2022)</li>
+        <li><strong>Course Instructor:</strong> Practical Regression Analysis — Coursera · HSE (2021)</li>
+        <li><strong>Course Instructor:</strong> Introduction to Applied Analytics — HSE (2021)</li>
         <li><strong>Teaching Assistant:</strong> Data Science; AI for Social Good — Notre Dame</li>
         <li><strong>Associate Director:</strong> DeMAS‑Center Statistical Consulting</li>
-        <li><strong>Online TA:</strong> Network Analysis; Contemporary Data Analysis; Advanced Probability & Stochastic Processes</li>
+        <li><strong>Coursera TA:</strong> Network Analysis; Contemporary Data Analysis; Advanced Probability & Stochastic Processes</li>
       </ul>
     </section>
 
@@ -347,23 +425,52 @@
       </ul>
     </section>
 
+    <!-- Memberships -->
+    <section class="section" id="memberships">
+      <h3>Memberships</h3>
+      <ul class="list">
+        <li>International Network for Social Network Analysis (INSNA), 2020–2022</li>
+        <li>International Political Science Association (IPSA), 2020–2022</li>
+      </ul>
+    </section>
+
+    <!-- Industry Experience -->
+    <section class="section" id="industry">
+      <h3>Industry Experience</h3>
+      <ul class="list">
+        <li>Business Analyst — Saint‑Gobain Russia · 2019–2020</li>
+        <li>Market Analyst — Nestlé Russia · 2018</li>
+        <li>Junior Communication Planner — Mediacom · 2017–2018</li>
+        <li>Intern — Federal State Statistics Service · 2015–2016</li>
+        <li>Trainee — Independent Regional Research Agency (NARI) · 2014</li>
+      </ul>
+    </section>
+
+    <!-- Selected Industry Projects -->
+    <section class="section" id="industry-projects">
+      <h3>Selected Industry Projects</h3>
+      <ul class="list">
+        <li>Project management dashboards for Saint‑Gobain (Russia & CIS) — 2020</li>
+        <li>Market outlooks for coffee machines (Retail & Fuel) — Nestlé — 2019</li>
+        <li>Advertising research: shaving & personal care — P&G via Mediacom — 2018</li>
+        <li>Category research: washing liquids & dishwasher capsules — P&G via Mediacom — 2017</li>
+      </ul>
+    </section>
+
+
+  
+
     <!-- Contact -->
     <section class="contact" id="contact">
       <h3>Connect & Collaborate</h3>
       <div class="actions">
-        <a href="/pages/cv/CV_final.pdf" target="_blank" rel="noopener">CV (PDF)</a>
-        <a href="mailto:asokol@nd.edu">Email</a>
-        <a href="https://github.com/SokolAnn" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://www.linkedin.com/in/sokolann/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://scholar.google.com/citations?user=wrEaQEQAAAAJ&hl=ru" target="_blank" rel="noopener">Google Scholar</a>
+        
       </div>
     </section>
 
     </main>
 
-    <footer>
-      © 2025 Anna Sokol · Department of Computer Science & Engineering, University of Notre Dame
-    </footer>
+    
   </div>
 </body>
 </html>
