@@ -1,19 +1,25 @@
 nav.bottombar {
     display: flex;
     align-items: center;
+    justify-content: space-between; /* Add this to properly space elements */
+    clear: both; /* Clear any floats */
 }
 
 div.contacts {
-    float: left;
+    /* Remove float - not needed with flexbox parent */
+    /* float: left; */
+    display: flex;
+    align-items: center;
 }
 
 ul.clinks {
     display: flex;
     list-style: none;
-    float: left;
+    margin: 0; /* Reset default margin */
+    padding: 0; /* Reset default padding */
+    /* float: left; */ /* Remove float - conflicts with flexbox */
 }
 
 ul.clinks li {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 0 10px; /* Simplified padding syntax */
 }
