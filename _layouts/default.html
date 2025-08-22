@@ -16,7 +16,7 @@
   <!-- Open Graph / Twitter -->
   <meta property="og:title" content="Anna Sokol — PhD Researcher" />
   <meta property="og:description" content="I study careful uses of language models for conservation, archives, and evaluation." />
-  <meta property="og:image" content="photo_2025-08-22_14-35-15.jpg" />
+  <meta property="og:image" content="https://sokolann.github.io/photo_2025-08-22_14-35-15.jpg" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
 
@@ -27,7 +27,7 @@
   "@type": "Person",
   "name": "Anna Sokol",
   "affiliation": {"@type":"CollegeOrUniversity","name":"University of Notre Dame"},
-  "jobTitle": "PhD Student",
+  "jobTitle": "PhD Candidate",
   "email": "mailto:asokol@nd.edu",
   "url": "https://sokolann.github.io/",
   "sameAs": [
@@ -159,8 +159,8 @@
     .contact{background:var(--accent);color:#fff;text-align:center;padding:28px 22px}
     .contact h3{font:800 24px/1.2 "Playfair Display",serif;margin:0 0 14px}
     .actions{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
-    $1border:1px solid rgba(255,255,255,.28);color:#fff;text-decoration:none;font:600 14px/1 Inter,system-ui,sans-serif;padding:12px 18px;border-radius:9999px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));box-shadow:0 6px 22px rgba(0,0,0,.12), inset 0 0 0 1px rgba(255,255,255,.08);backdrop-filter:blur(3px);transition:transform .25s var(--ease),box-shadow .25s var(--ease),background .25s var(--ease)}
-    $1background:#fff;color:var(--accent);transform:translateY(-1px);box-shadow:0 10px 30px rgba(0,0,0,.18)}
+    .actions a{border:1px solid rgba(255,255,255,.28);color:#fff;text-decoration:none;font:600 14px/1 Inter,system-ui,sans-serif;padding:12px 18px;border-radius:9999px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));box-shadow:0 6px 22px rgba(0,0,0,.12), inset 0 0 0 1px rgba(255,255,255,.08);backdrop-filter:blur(3px);transition:transform .25s var(--ease),box-shadow .25s var(--ease),background .25s var(--ease)}
+    .actions a:hover{background:#fff;color:var(--accent);transform:translateY(-1px);box-shadow:0 10px 30px rgba(0,0,0,.18)}
 
     footer{border-top:3px double var(--rule);background:#fbfbfb;text-align:center;padding:18px 22px;font:500 12px/1.6 Inter,system-ui,sans-serif;color:#666}
 
@@ -249,7 +249,6 @@
         <li><a href="#news">News</a></li>
         <li><a href="#publications">Publications</a></li>
         <li><a href="#teaching">Teaching</a></li>
-        <li><a href="#fellowships">Fellowships</a></li>
         <li><a href="/pages/cv/CV_final.pdf" target="_blank" rel="noopener">CV</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -264,16 +263,14 @@
         <div class="byline">Dissertation · AI for Social Good</div>
         <h2>Large Language Models for Scientific Discovery</h2>
         <div class="deck">Conservation, truth‑commission archives, and reliable evaluation.</div>
-        <p class="lead measure">My dissertation studies how to understand and deploy large language models in real scientific settings. We integrate LLMs with knowledge graphs, examine how people use them in practice, and test how knowledge graphs can improve reasoning, retrieval, and usefulness for applied research. I study, build, and evaluate practical tools with Prof. Nitesh Chawla. I help wildlife scientists find evidence, guide readers through Colombia’s Truth Commission archives, and make model evaluation match real work.</p>
+        <p class="lead measure">I study, build, and evaluate practical tools with Prof. Nitesh Chawla. I help wildlife scientists find evidence, guide readers through Colombia’s Truth Commission archives, and make model evaluation match real work.</p>
         <aside class="pull" aria-label="pull quote"><q>Care first. Then models.</q></aside>
       </div>
       <figure>
         <picture>
-          <source type="image/jpg" srcset="photo_2025-08-22_14-35-15.jpg" />
+          <source type="image/jpeg" srcset="{{ '/photo_2025-08-22_14-35-15.jpg' | relative_url }}" />
           <img
-            src="photo_2025-08-22_14-35-15.jpg" width="963" height="1280"
-            srcset="photo_2025-08-22_14-35-15.jpg 1024w, photo_2025-08-22_14-35-15.jpg 1536w, photo_2025-08-22_14-35-15.jpg 2048w"
-            sizes="(max-width: 980px) 100vw, 42vw"
+            src="{{ '/photo_2025-08-22_14-35-15.jpg' | relative_url }}" width="963" height="1280"
             alt="Anna Sokol, PhD candidate at Notre Dame"
             loading="lazy" decoding="async" />
         </picture>
@@ -281,13 +278,19 @@
       </figure>
     </section>
 
-
+    <!-- Dissertation -->
+    <section class="section" id="dissertation">
+      <h3>Dissertation</h3>
+      <p class="measure">My dissertation studies how to understand and deploy large language models in real scientific settings. We integrate LLMs with knowledge graphs, examine how people use them in practice, and test how knowledge graphs can improve reasoning, retrieval, and usefulness for applied research.</p>
+    </section>
 
     <!-- Education -->
     <section class="section" id="education">
       <h3>Education</h3>
       <ul class="list">
         <li>Ph.D., Computer Science — University of Notre Dame · 2022–2027</li>
+        <li>Ph.D., Sociology — Higher School of Economics · 2020–2023</li>
+        <li>M.A., Applied Mathematics & Informatics — Higher School of Economics · 2021–2024</li>
         <li>M.A., Sociology — Higher School of Economics · 2016–2018</li>
         <li>B.A., Sociology — Vladimir State University · 2012–2016</li>
       </ul>
@@ -327,16 +330,16 @@
     <section class="section" id="news">
       <h3>Latest News</h3>
       <ul class="list">
-        <li><time datetime="2025">2025</time> — NAACL 2025, Albuquerque, NM.</li>
-        <li><time datetime="2025">2025</time> — WSDM 2025 paper: “Ventana a la Verdad”.</li>
+        <li><time datetime="2025-04-29">Apr 29–May 4, 2025</time> — NAACL 2025, Albuquerque, NM.</li>
+        <li><time datetime="2025-03">Mar 2025</time> — WSDM 2025 paper: “Ventana a la Verdad”.</li>
         <li><time datetime="2025">2025</time> — AAAI 2025, Philadelphia, PA.</li>
         <li><time datetime="2025">2025</time> — Doctoral Forum, SIAM SDM25.</li>
+        <li><time datetime="2024-10-29">Oct 29–31, 2024</time> — ADSA 2024 Annual Meeting, University of Michigan.</li>
         <li><time datetime="2025">2025</time> — Notre Dame / IBM Technology Ethics Lab Fellows announced. <a href="https://ethics.nd.edu/news-and-events/news/2025-2026-notre-dameibm-technology-ethics-lab-fellows-announced/" target="_blank" rel="noopener">Read</a></li>
         <li><time datetime="2025">2025</time> — DCU Business: Notre Dame–IBM Technology Ethics Lab awards nearly $1M to collaborative projects. <a href="https://business.dcu.ie/notre-dame-ibm-technology-ethics-lab-awards-nearly-1000000-to-build-collaborative-projects/" target="_blank" rel="noopener">Read</a></li>
         <li><time datetime="2025">2025</time> — Graduate Justice Fellows cohort. <a href="https://socialconcerns.nd.edu/current-graduate-justice-fellows/" target="_blank" rel="noopener">Read</a></li>
         <li><time datetime="2025">2025</time> — Graduate Scholar Spotlight: Lucy Family Institute. <a href="https://lucyinstitute.nd.edu/people/graduate-scholars/graduate-scholar-spotlights/graduate-scholar-spotlight-anna-sokol/" target="_blank" rel="noopener">Read</a></li>
         <li><time datetime="2024">2024</time> — Lucy Graduate Scholars cohort. <a href="https://lucyinstitute.nd.edu/people/graduate-scholars/2023-2025-lucy-graduate-scholars-cohort/anna-sokol/" target="_blank" rel="noopener">Read</a></li>
-        <li><time datetime="2024">2024</time> — ADSA 2024 Annual Meeting, University of Michigan.</li>
         <li><time datetime="2024">2024</time> — Legacy Project — People. <a href="https://legacyproject.nd.edu/about/people/" target="_blank" rel="noopener">Read</a></li>
       </ul>
     </section>
@@ -362,10 +365,10 @@
     <section class="section" id="conferences">
       <h3>Conferences</h3>
       <ul class="list">
-        <li><strong>NAACL 2025</strong> — Albuquerque, NM, USA — 2025</li>
+        <li><strong>NAACL 2025</strong> — Albuquerque, NM, USA · <time datetime="2025-04-29">Apr 29–May 4, 2025</time></li>
         <li><strong>Doctoral Forum, SIAM SDM25</strong> — 2025</li>
         <li><strong>AAAI 2025</strong> — Philadelphia, PA, USA · 2025</li>
-        <li><strong>ADSA 2024</strong> — University of Michigan, Ann Arbor, MI 
+        <li><strong>ADSA 2024</strong> — University of Michigan, Ann Arbor, MI · <time datetime="2024-10-29">Oct 29–31, 2024</time></li>
         <li><strong>CODS–COMAD 2024</strong> — Jodhpur, India · 2024</li>
         <li><strong>Sunbelt 2023</strong> — Portland, OR, USA</li>
         <li><strong>APSA 2022</strong> — Montreal, Canada</li>
@@ -410,7 +413,7 @@
         <li><strong>Course Instructor:</strong> Introduction to Applied Analytics — HSE (2021)</li>
         <li><strong>Teaching Assistant:</strong> Data Science; AI for Social Good — Notre Dame</li>
         <li><strong>Associate Director:</strong> DeMAS‑Center Statistical Consulting</li>
-        <li><strong>Coursera TA:</strong> Network Analysis; Contemporary Data Analysis; Advanced Probability & Stochastic Processes</li>
+        <li><strong>Online TA:</strong> Network Analysis; Contemporary Data Analysis; Advanced Probability & Stochastic Processes</li>
       </ul>
     </section>
 
@@ -456,27 +459,54 @@
       </ul>
     </section>
 
+    <!-- Tools & Languages -->
+    <section class="section" id="skills">
+      <h3>Tools & Languages</h3>
+      <ul class="list">
+        <li>Python, R, SQL; SAS, Stata; LaTeX; LISREL; SPSS; Gephi; Orange</li>
+      </ul>
+    </section>
 
-  
+    <!-- Languages -->
+    <section class="section" id="languages">
+      <h3>Languages</h3>
+      <ul class="list">
+        <li>Russian — Native</li>
+        <li>English — Advanced</li>
+      </ul>
+    </section>
 
     <!-- Contact -->
     <section class="contact" id="contact">
       <h3>Connect & Collaborate</h3>
       <div class="actions">
-        
+        <a href="/pages/cv/CV_final.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+        <a href="mailto:asokol@nd.edu">Email</a>
+        <a href="https://scholar.google.com/citations?hl=ru&user=wrEaQEQAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener">Google Scholar</a>
+        <a href="https://github.com/SokolAnn" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/sokolann/" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </section>
 
     </main>
 
-    
+    <footer>
+      © 2025 Anna Sokol · Department of Computer Science & Engineering, University of Notre Dame
+    </footer>
   </div>
+<script>
+(function(){
+  const $$ = (sel)=>Array.from(document.querySelectorAll(sel));
+  const targets=[...$$('.card'),...$$('.list li'),...$$('.section h3'),...$$('.pull'),...$$('.hero .deck'),...$$('.lead')];
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target);}})},{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
+  targets.forEach(el=>{el.classList.add('reveal');io.observe(el)});
+  const img=document.querySelector('.hero figure img');
+  if(img && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    let ticking=false;
+    const onScroll=()=>{if(!ticking){window.requestAnimationFrame(()=>{const y=Math.min(18, window.scrollY*0.04);img.style.transform='translateY('+y+'px)';ticking=false;});ticking=true;}};
+    window.addEventListener('scroll',onScroll,{passive:true});
+  }
+})();
+</script>
 </body>
 </html>
-<script>
-  // Add current page class to nav links
-  document.querySelectorAll('nav.nav a').forEach(link => {
-    if (link.getAttribute('href') === window.location.hash.slice(1)) {
-      link.classList.add('current');
-    }
-  });
