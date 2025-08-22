@@ -1,470 +1,377 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anna Sokol | Curriculum Vitae</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Serif+Pro:wght@400;600&family=Inter:wght@400;500;600&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Source Serif Pro', Georgia, serif;
-            background: #faf8f5;
-            color: #222;
-            line-height: 1.6;
-            font-size: 10pt;
-        }
-        
-        .newspaper-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            box-shadow: 0 0 40px rgba(0,0,0,0.1);
-        }
-        
-        /* Masthead */
-        .masthead {
-            text-align: center;
-            padding: 20px 40px;
-            border-bottom: 4px double #222;
-            position: relative;
-        }
-        
-        .masthead h1 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 900;
-            font-size: 48pt;
-            letter-spacing: -1px;
-            margin: 10px 0;
-            text-transform: uppercase;
-        }
-        
-        .masthead-subtitle {
-            font-family: 'Inter', sans-serif;
-            font-size: 9pt;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin: 5px 0;
-        }
-        
-        .edition-info {
-            display: flex;
-            justify-content: space-between;
-            font-size: 8pt;
-            margin-top: 10px;
-            padding-top: 10px;
-            border-top: 1px solid #222;
-            font-family: 'Inter', sans-serif;
-        }
-        
-        .edition-info span {
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        /* Main Content */
-        .content-wrapper {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 20px;
-            padding: 30px 40px;
-        }
-        
-        /* Headlines and Sections */
-        .section-header {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            font-size: 18pt;
-            margin: 20px 0 10px;
-            padding-bottom: 5px;
-            border-bottom: 2px solid #222;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .subsection-header {
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            font-size: 11pt;
-            margin: 15px 0 8px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        /* Article Style Content */
-        .article {
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #ddd;
-        }
-        
-        .article:last-child {
-            border-bottom: none;
-        }
-        
-        .article-headline {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            font-size: 14pt;
-            line-height: 1.2;
-            margin-bottom: 5px;
-        }
-        
-        .article-byline {
-            font-family: 'Inter', sans-serif;
-            font-size: 8pt;
-            color: #666;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        .article-content {
-            column-count: 1;
-            text-align: justify;
-            hyphens: auto;
-        }
-        
-        /* Sidebar */
-        .sidebar {
-            padding-left: 20px;
-            border-left: 1px solid #222;
-        }
-        
-        .sidebar-box {
-            background: #f5f5f5;
-            padding: 15px;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-        }
-        
-        .sidebar-header {
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            font-size: 10pt;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-            padding-bottom: 5px;
-            border-bottom: 1px solid #222;
-        }
-        
-        /* Contact Info Box */
-        .contact-box {
-            background: #222;
-            color: white;
-            padding: 15px;
-            margin-bottom: 20px;
-        }
-        
-        .contact-box a {
-            color: white;
-            text-decoration: none;
-        }
-        
-        .contact-box a:hover {
-            text-decoration: underline;
-        }
-        
-        /* Lists */
-        ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        
-        ul li {
-            position: relative;
-            padding-left: 15px;
-            margin-bottom: 5px;
-        }
-        
-        ul li:before {
-            content: "▪";
-            position: absolute;
-            left: 0;
-        }
-        
-        /* Publications Style */
-        .publication {
-            margin-bottom: 12px;
-            padding-left: 20px;
-            text-indent: -20px;
-        }
-        
-        .pub-authors {
-            font-style: italic;
-        }
-        
-        .pub-title {
-            font-weight: 600;
-        }
-        
-        .pub-venue {
-            font-family: 'Inter', sans-serif;
-            font-size: 9pt;
-        }
-        
-        /* Skills Grid */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-top: 10px;
-        }
-        
-        .skill-category {
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            font-size: 9pt;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 3px;
-        }
-        
-        .skill-items {
-            font-size: 9pt;
-            color: #555;
-        }
-        
-        /* Footer */
-        .footer {
-            border-top: 4px double #222;
-            padding: 20px 40px;
-            text-align: center;
-            font-family: 'Inter', sans-serif;
-            font-size: 8pt;
-            color: #666;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .content-wrapper {
-                grid-template-columns: 1fr;
-            }
-            
-            .sidebar {
-                border-left: none;
-                border-top: 2px solid #222;
-                padding-left: 0;
-                padding-top: 20px;
-                margin-top: 20px;
-            }
-            
-            .masthead h1 {
-                font-size: 32pt;
-            }
-        }
-        
-        @media print {
-            body {
-                font-size: 9pt;
-            }
-            
-            .newspaper-container {
-                box-shadow: none;
-            }
-            
-            .contact-box {
-                background: white;
-                color: black;
-                border: 2px solid black;
-            }
-            
-            .contact-box a {
-                color: black;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Anna Sokol | PhD Researcher</title>
+  <meta name="description" content="I study, build, and evaluate practical LLM tools with knowledge graphs for conservation, archives, and real‑world evaluation." />
+  <!-- Preconnects -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@800;900&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <!-- Optional: preload a self‑hosted headline font file if available -->
+  <link rel="preload" href="playfair.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Anna Sokol — PhD Researcher" />
+  <meta property="og:description" content="I study careful uses of language models for conservation, archives, and evaluation." />
+  <meta property="og:image" content="photo_2025-08-22_14-35-15.jpg" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- JSON‑LD Person -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Anna Sokol",
+  "affiliation": {"@type":"CollegeOrUniversity","name":"University of Notre Dame"},
+  "jobTitle": "PhD Candidate",
+  "email": "mailto:asokol@nd.edu",
+  "url": "https://sokolann.github.io/",
+  "sameAs": [
+    "https://github.com/SokolAnn",
+    "https://www.linkedin.com/in/sokolann/",
+    "https://scholar.google.com/citations?user=wrEaQEQAAAAJ&hl=ru"
+  ],
+  "knowsAbout": ["Large Language Models","Knowledge Graphs","AI for Social Good","Evaluation","Conservation"]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"ScholarlyArticle",
+ "name":"BenchmarkCards: Standardized Documentation for Large Language Model Benchmarks",
+ "author":[{"@type":"Person","name":"Anna Sokol"}],
+ "datePublished":"2024-10",
+ "url":"https://arxiv.org/abs/2410.12974",
+ "isPartOf":{"@type":"CreativeWork","name":"arXiv"}
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"ScholarlyArticle",
+ "name":"Ventana a la Verdad: A Chatbot Application for Navigating The Colombian Truth Commission's Archives",
+ "author":[{"@type":"Person","name":"Anna Sokol"}],
+ "datePublished":"2025",
+ "isPartOf":{"@type":"CreativeWork","name":"ACM WSDM"}
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"ScholarlyArticle",
+ "name":"Breaking Language Barriers: Equitable Performance in Multilingual Language Models",
+ "author":[{"@type":"Person","name":"Anna Sokol"}],
+ "datePublished":"2025",
+ "isPartOf":{"@type":"CreativeWork","name":"NAACL"}
+}
+</script>
+
+  <style>
+    :root{
+      --ink:#111;      /* headline black */
+      --gray-1:#6b7280;/* text secondary */
+      --paper:#fff;
+      --rule:#222;     /* rule color */
+      --accent:#002147;/* quiet navy */
+      --max: 1040px;   /* wrapper width */
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      background:#fafafa;color:var(--ink);
+      font:400 16px/1.6 "Source Serif Pro", Georgia, serif;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
+    a{color:var(--ink);text-decoration:none}
+    .skip{position:absolute;left:-9999px;top:auto}
+    .skip:focus{left:16px;top:16px;background:#fff;padding:8px 12px;border:2px solid var(--accent)}
+    a:hover{text-decoration:none}
+    a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+    .wrap{max-width:var(--max);margin:auto;background:var(--paper);box-shadow:0 10px 40px rgba(0,0,0,.06)}
+
+    /* Top strip */
+    .strip{background:var(--accent);color:#fff;font:500 12px/1.2 Inter,system-ui,sans-serif;padding:8px 20px;display:flex;gap:16px;justify-content:space-between;align-items:center}
+    .strip a{color:#fff;text-decoration:none;opacity:.95}
+    .strip a:hover{text-decoration:none}
+
+    /* Masthead */
+    .mast{padding:28px 22px 18px;border-bottom:1px solid var(--rule);position:relative}
+    .mast::before{content:"";position:absolute;left:22px;right:22px;top:0;height:3px;background:var(--accent)}
+    .kicker{font:600 11px/1 Inter,system-ui,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--gray-1)}
+    h1.name{font:900 56px/0.95 "Playfair Display",serif;letter-spacing:-.02em;margin:10px 0 6px}
+    .edition{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:10px;padding-top:10px;border-top:1px solid #cfcfcf;font:500 12px/1.4 Inter,system-ui,sans-serif;color:var(--gray-1);text-transform:uppercase;letter-spacing:.06em}
+
+    /* Nav */
+    nav.nav{border-bottom:3px double var(--rule);padding:10px 16px}
+    nav.nav ul{list-style:none;display:flex;flex-wrap:wrap;gap:18px;justify-content:center;margin:0}
+    nav.nav a{font:600 12px/1 Inter,system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);text-decoration:none;border-bottom:2px solid transparent;padding-bottom:4px}
+    nav.nav a:hover{opacity:.85}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1.2fr .9fr;gap:26px;padding:26px 22px;border-bottom:1px solid #e5e5e5}
+    .hero h2{font:800 36px/1.1 "Playfair Display",serif;margin:4px 0 8px}
+    .deck{font:500 13px/1.4 Inter,system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#555;margin-bottom:12px;opacity:.9}
+    .hero p{margin:0;color:#2b2b2b}
+    .byline{font:600 11px/1 Inter,system-ui,sans-serif;color:var(--gray-1);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+    .measure{max-width:72ch;hyphens:auto}
+
+    /* Drop cap */
+    .lead:first-letter{float:left;font:700 4.2rem "Playfair Display",serif;line-height:.85;margin:.22rem .4rem 0 0;color:#111}
+    @media(max-width:980px){.lead:first-letter{float:none;font-size:inherit;margin:0}}
+
+    /* Hero photo */
+    
+    
+    .hero img{width:100%;height:auto;max-height:560px;object-fit:cover;object-position:center;border:1px solid #ddd;box-shadow:0 8px 24px rgba(0,0,0,.06)}
+    .caption{font:12px/1.4 Inter,system-ui,sans-serif;color:#666;margin-top:6px}
+
+    /* Pull quote */
+    .pull{border-left:2px solid #e5e5e5;padding:14px 0 14px 14px;margin:16px 0}
+    .pull q{font:italic 18px/1.5 "Source Serif Pro",serif;color:#333}
+
+    /* Sections */
+    .section{padding:28px 22px;border-top:3px double var(--rule)}
+    .section h3{font:700 14px/1 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.14em;margin:4px 0 14px;border-top:1px solid #ddd;padding-top:8px}
+    .cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+    .card{border-right:1px solid #e5e5e5;padding-right:16px}
+    .card:last-child{border-right:none}
+    .card h4{font:700 20px/1.2 "Playfair Display",serif;margin:0 0 6px}
+    .card .meta{font:600 11px/1 Inter,system-ui,sans-serif;color:var(--gray-1);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+    .card p{margin:0;color:#333}
+
+    /* Simple lists */
+    .list{display:grid;gap:12px}
+    .list li{list-style:none;padding:10px 0;border-bottom:1px dotted #d7d7d7}
+    .list li:last-child{border-bottom:none}
+    .list a{color:#0f172a}
+    .list a:hover,.list a:focus-visible{color:#1d4ed8}
+    .pub .n{float:left;font:900 26px/1 "Playfair Display",serif;color:var(--accent);width:32px}
+    .pub .body{overflow:hidden}
+    .pub .title{font:700 16px/1.3 "Playfair Display",serif}
+    .pub .meta{font:italic 13px/1.4 "Source Serif Pro",serif;color:#666}
+
+    /* Contact */
+    .contact{background:var(--accent);color:#fff;text-align:center;padding:28px 22px}
+    .contact h3{font:800 24px/1.2 "Playfair Display",serif;margin:0 0 14px}
+    .actions{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+    .actions a{border:2px solid #fff;color:#fff;text-decoration:none;font:600 14px/1 Inter,system-ui,sans-serif;padding:10px 18px}
+    .actions a:hover{background:#fff;color:var(--accent)}
+
+    footer{border-top:3px double var(--rule);background:#fbfbfb;text-align:center;padding:18px 22px;font:500 12px/1.6 Inter,system-ui,sans-serif;color:#666}
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero{grid-template-columns:1fr}
+      .cards{grid-template-columns:1fr}
+      h1.name{font-size:44px}
+      .hero h2{font-size:28px}
+      .measure{max-width:unset}
+    }
+
+    /* Print for CV handouts */
+    @media print{
+      nav,.strip,.contact{display:none}
+      .hero,.cards{display:block}
+      a[href]::after{content:" (" attr(href) ")";font-size:90%}
+      body{background:#fff}
+    }
+  .hero > div{grid-column:1}
+    .hero > figure{grid-column:2}
+    @media(max-width:980px){.hero{grid-template-columns:1fr}.hero > div,.hero > figure{grid-column:auto}}
+  @media (prefers-color-scheme: dark){
+      body{background:#0b0b0b;color:#f4f4f5}
+      .wrap{background:#0f0f10}
+      .section{border-color:#3a3a3a}
+      .caption,.byline{color:#a1a1aa}
+      .contact{background:#0f1e33}
+    }
+  </style>
+  <link rel="canonical" href="https://sokolann.github.io/">
+  <meta property="og:url" content="https://sokolann.github.io/">
+  <meta name="theme-color" content="#002147">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; connect-src 'self'">
 </head>
 <body>
-    <div class="newspaper-container">
-        <!-- Masthead -->
-        <header class="masthead">
-            <div class="masthead-subtitle">Curriculum Vitae</div>
-            <h1>Your Name</h1>
-            <div class="masthead-subtitle">PhD Candidate in Computer Science</div>
-            <div class="edition-info">
-                <span>University of Notre Dame</span>
-                <span>Est. 20XX</span>
-                <span>South Bend, Indiana</span>
-            </div>
-        </header>
-        
-        <!-- Main Content -->
-        <div class="content-wrapper">
-            <!-- Main Column -->
-            <main>
-                <!-- Research Interests -->
-                <section>
-                    <h2 class="section-header">Research Interests</h2>
-                    <div class="article">
-                        <div class="article-headline">Large Language Model Benchmarking & Evaluation</div>
-                        <div class="article-byline">Primary Focus Area</div>
-                        <div class="article-content">
-                            Developing comprehensive evaluation frameworks for assessing LLM capabilities, with particular emphasis on robustness testing, bias detection, and performance metrics across diverse domains. Current work involves creating novel benchmarks that address gaps in existing evaluation methodologies.
-                        </div>
-                    </div>
-                    <div class="article">
-                        <div class="article-headline">Machine Learning Systems & Architecture</div>
-                        <div class="article-byline">Secondary Research Area</div>
-                        <div class="article-content">
-                            Investigating efficient architectures for deploying large-scale ML systems, focusing on optimization techniques, distributed computing, and real-world application constraints.
-                        </div>
-                    </div>
-                </section>
-                
-                <!-- Education -->
-                <section>
-                    <h2 class="section-header">Education</h2>
-                    <div class="article">
-                        <div class="article-headline">Doctor of Philosophy in Computer Science</div>
-                        <div class="article-byline">University of Notre Dame | 2021 - Present</div>
-                        <div class="article-content">
-                            <strong>Advisor:</strong> Prof. [Advisor Name]<br>
-                            <strong>Dissertation:</strong> "Advanced Benchmarking Methodologies for Large Language Models"<br>
-                            <strong>GPA:</strong> 4.0/4.0
-                        </div>
-                    </div>
-                    <div class="article">
-                        <div class="article-headline">Master of Science in Computer Science</div>
-                        <div class="article-byline">University Name | 2019 - 2021</div>
-                        <div class="article-content">
-                            <strong>Thesis:</strong> "Evaluation Metrics for Neural Language Models"<br>
-                            <strong>GPA:</strong> 3.9/4.0
-                        </div>
-                    </div>
-                    <div class="article">
-                        <div class="article-headline">Bachelor of Science in Computer Science</div>
-                        <div class="article-byline">University Name | 2015 - 2019</div>
-                        <div class="article-content">
-                            <strong>Summa Cum Laude</strong><br>
-                            <strong>GPA:</strong> 3.95/4.0
-                        </div>
-                    </div>
-                </section>
-                
-                <!-- Selected Publications -->
-                <section>
-                    <h2 class="section-header">Selected Publications</h2>
-                    <div class="publication">
-                        <span class="pub-authors">Your Name, Co-Author, et al.</span> (2024). 
-                        <span class="pub-title">"BenchAdvisor: A Comprehensive Framework for LLM Benchmark Selection."</span> 
-                        <span class="pub-venue">Proceedings of ACL 2024.</span>
-                    </div>
-                    <div class="publication">
-                        <span class="pub-authors">Your Name, Collaborator.</span> (2023). 
-                        <span class="pub-title">"Addressing Contamination in Large Language Model Evaluation."</span> 
-                        <span class="pub-venue">NeurIPS 2023.</span>
-                    </div>
-                    <div class="publication">
-                        <span class="pub-authors">Your Name, et al.</span> (2023). 
-                        <span class="pub-title">"Robust Evaluation Metrics for Generation Tasks."</span> 
-                        <span class="pub-venue">EMNLP 2023.</span>
-                    </div>
-                </section>
-                
-                <!-- Teaching Experience -->
-                <section>
-                    <h2 class="section-header">Teaching Experience</h2>
-                    <div class="article">
-                        <div class="article-headline">Graduate Teaching Assistant</div>
-                        <div class="article-byline">CSE 40113: Design/Analysis of Algorithms | Fall 2023</div>
-                        <div class="article-content">
-                            Led recitation sessions for 40+ students, developed programming assignments, and received outstanding TA award.
-                        </div>
-                    </div>
-                    <div class="article">
-                        <div class="article-headline">Course Instructor</div>
-                        <div class="article-byline">CSE 20312: Data Structures | Spring 2023</div>
-                        <div class="article-content">
-                            Independently taught undergraduate course with 60 students. Developed curriculum focusing on practical applications.
-                        </div>
-                    </div>
-                </section>
-            </main>
-            
-            <!-- Sidebar -->
-            <aside class="sidebar">
-                <!-- Contact Information -->
-                <div class="contact-box">
-                    <h3 class="sidebar-header" style="color: white; border-bottom-color: white;">Contact</h3>
-                    <p style="font-size: 9pt; line-height: 1.8;">
-                        <strong>Office:</strong> 384 Fitzpatrick Hall<br>
-                        <strong>Email:</strong> <a href="mailto:yourname@nd.edu">yourname@nd.edu</a><br>
-                        <strong>Phone:</strong> (574) 555-0123<br>
-                        <strong>Web:</strong> <a href="https://cse.nd.edu/~yourname">cse.nd.edu/~yourname</a><br>
-                        <strong>GitHub:</strong> <a href="https://github.com/yourname">@yourname</a>
-                    </p>
-                </div>
-                
-                <!-- Awards -->
-                <div class="sidebar-box">
-                    <h3 class="sidebar-header">Honors & Awards</h3>
-                    <ul style="font-size: 9pt;">
-                        <li>NSF Graduate Research Fellowship (2022)</li>
-                        <li>Best Paper Award, ACL 2024</li>
-                        <li>Notre Dame Outstanding TA Award (2023)</li>
-                        <li>Google PhD Fellowship Nominee (2023)</li>
-                    </ul>
-                </div>
-                
-                <!-- Technical Skills -->
-                <div class="sidebar-box">
-                    <h3 class="sidebar-header">Technical Expertise</h3>
-                    <div class="skills-grid">
-                        <div>
-                            <div class="skill-category">Languages</div>
-                            <div class="skill-items">Python, C++, JavaScript, SQL</div>
-                        </div>
-                        <div>
-                            <div class="skill-category">ML/AI</div>
-                            <div class="skill-items">PyTorch, TensorFlow, Transformers</div>
-                        </div>
-                        <div>
-                            <div class="skill-category">Tools</div>
-                            <div class="skill-items">Git, Docker, AWS, LaTeX</div>
-                        </div>
-                        <div>
-                            <div class="skill-category">Research</div>
-                            <div class="skill-items">NLP, LLM Evaluation, Benchmarking</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Service -->
-                <div class="sidebar-box">
-                    <h3 class="sidebar-header">Academic Service</h3>
-                    <ul style="font-size: 9pt;">
-                        <li>Reviewer: ACL, EMNLP, NeurIPS</li>
-                        <li>Student Representative, CS Dept.</li>
-                        <li>Organizer, ND AI Workshop 2023</li>
-                        <li>Mentor, REU Summer Program</li>
-                    </ul>
-                </div>
-                
-                <!-- Recent Talks -->
-                <div class="sidebar-box">
-                    <h3 class="sidebar-header">Recent Presentations</h3>
-                    <ul style="font-size: 9pt;">
-                        <li>"LLM Evaluation Best Practices" - Microsoft Research (2024)</li>
-                        <li>"Benchmark Contamination" - ACL 2024</li>
-                        <li>"Future of AI Assessment" - Notre Dame AI Symposium (2023)</li>
-                    </ul>
-                </div>
-            </aside>
-        </div>
-        
-        <!-- Footer -->
-        <footer class="footer">
-            <p>Last Updated: December 2024 | References Available Upon Request</p>
-            <p>University of Notre Dame | Department of Computer Science & Engineering</p>
-        </footer>
+  <a href="#main" class="skip">Skip to content</a>
+  <div class="wrap">
+    <!-- University strip -->
+    <div class="strip">
+      <div>University of Notre Dame · Department of Computer Science & Engineering</div>
+      <div>
+        <a href="mailto:asokol@nd.edu">Email</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://github.com/SokolAnn" target="_blank" rel="noopener">GitHub</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://www.linkedin.com/in/sokolann/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
     </div>
+
+    <!-- Masthead -->
+    <header class="mast" role="banner">
+      <div class="kicker">4th‑Year PhD Candidate</div>
+      <h1 class="name">ANNA&nbsp;SOKOL</h1>
+      <div class="edition">
+        <span>Notre Dame, Indiana</span>
+        <span>Advisor: Prof. Nitesh Chawla</span>
+        <span>PhD since 2022</span>
+      </div>
+    </header>
+
+    <!-- Nav -->
+    <nav class="nav" aria-label="Primary site sections">
+      <ul>
+        <li><a href="#research" aria-current="page">Research</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#teaching">Teaching</a></li>
+        <li><a href="#fellowships">Fellowships</a></li>
+        <li><a href="/pages/cv/CV_final.pdf" target="_blank" rel="noopener">CV</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+
+
+    <!-- Hero -->
+    <section class="hero" id="research">
+      <div>
+        <div class="byline">Dissertation · AI for Social Good</div>
+        <h2>Large Language Models for Scientific Discovery</h2>
+        <div class="deck">Conservation, truth‑commission archives, and reliable evaluation.</div>
+        <p class="lead measure">I study, build, and evaluate practical tools with Prof. Nitesh Chawla. I help wildlife scientists find evidence, guide readers through Colombia’s Truth Commission archives, and make model evaluation match real work.</p>
+        <aside class="pull" aria-label="pull quote"><q>Care first. Then models.</q></aside>
+      </div>
+      <figure>
+        <picture>
+          <source type="image/jpg" srcset="photo_2025-08-22_14-35-15.jpg" />
+          <img
+            src="photo_2025-08-22_14-35-15.jpg" width="963" height="1280"
+            srcset="photo_2025-08-22_14-35-15.jpg 1024w, photo_2025-08-22_14-35-15.jpg 1536w, photo_2025-08-22_14-35-15.jpg 2048w"
+            sizes="(max-width: 980px) 100vw, 42vw"
+            alt="Anna Sokol, PhD candidate at Notre Dame"
+            loading="lazy" decoding="async" />
+        </picture>
+        <figcaption class="caption">Anna Sokol · University of Notre Dame</figcaption>
+      </figure>
+    </section>
+
+    <!-- Dissertation -->
+    <section class="section" id="dissertation">
+      <h3>Dissertation</h3>
+      <p class="measure">My dissertation studies how to understand and deploy large language models in real scientific settings. We integrate LLMs with knowledge graphs, examine how people use them in practice, and test how knowledge graphs can improve reasoning, retrieval, and usefulness for applied research.</p>
+    </section>
+
+    <!-- Research highlights -->
+    <section class="section">
+      <h3>Research Highlights</h3>
+      <div class="cards">
+        <article class="card">
+          <h4>Wildlife & Conservation</h4>
+          <div class="meta">LLMs for scientific discovery · 2024–2025</div>
+          <p>I build tools that read and connect ecological evidence to support real conservation work.</p>
+        </article>
+        <article class="card">
+          <h4>Truth & Reconciliation</h4>
+          <div class="meta">Colombian archives · 2024–2025</div>
+          <p>I design search and guidance for communities navigating the Truth Commission’s records.</p>
+        </article>
+        <article class="card">
+          <h4>Risk & Benchmarking</h4>
+          <div class="meta">Evaluation practices · 2023–2024</div>
+          <p>I write clearer documentation and checks so evaluations reflect real use.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- News with datelines -->
+    <section class="section" aria-label="Selected Projects">
+      <h3>Selected Projects</h3>
+      <div class="cards">
+        <article class="card"><h4>Ventana a la Verdad</h4><p>Archive navigation for Colombia’s CEV. <a href="#">demo</a> · <a href="#">code</a> · <a href="#">paper</a></p></article>
+        <article class="card"><h4>BenchmarkCards</h4><p>Documentation standard for LLM benchmarks. <a href="https://arxiv.org/abs/2410.12974" target="_blank" rel="noopener">paper</a></p></article>
+        <article class="card"><h4>Conservation Assistant</h4><p>Evidence retrieval for wildlife research. <a href="#">demo</a></p></article>
+      </div>
+    </section>
+
+    <section class="section" id="news">
+      <h3>Latest News</h3>
+      <ul class="list">
+        <li><time datetime="2025">2025</time> — Notre Dame / IBM Technology Ethics Lab Fellows announced. <a href="https://ethics.nd.edu/news-and-events/news/2025-2026-notre-dameibm-technology-ethics-lab-fellows-announced/" target="_blank" rel="noopener">Read</a></li>
+        <li><time datetime="2025">2025</time> — Graduate Justice Fellows cohort. <a href="https://socialconcerns.nd.edu/current-graduate-justice-fellows/" target="_blank" rel="noopener">Read</a></li>
+        <li><time datetime="2025">2025</time> — Graduate Scholar Spotlight: Lucy Family Institute. <a href="https://lucyinstitute.nd.edu/people/graduate-scholars/graduate-scholar-spotlights/graduate-scholar-spotlight-anna-sokol/" target="_blank" rel="noopener">Read</a></li>
+        <li><time datetime="2024">2024</time> — Lucy Graduate Scholars cohort. <a href="https://lucyinstitute.nd.edu/people/graduate-scholars/2023-2025-lucy-graduate-scholars-cohort/anna-sokol/" target="_blank" rel="noopener">Read</a></li>
+        <li><time datetime="2024">2024</time> — Legacy Project — People. <a href="https://legacyproject.nd.edu/about/people/" target="_blank" rel="noopener">Read</a></li>
+      </ul>
+    </section>
+
+    <!-- Publications (show all) -->
+    <section class="section" id="publications">
+      <h3>Publications</h3>
+      <ul class="list">
+        <li class="pub"><span class="n">1</span><div class="body"><div class="title">Breaking Language Barriers: Equitable Performance in Multilingual Language Models</div><div class="meta">T. Nagar, G. Khvatskii, <strong>A. Sokol</strong>, N. V. Chawla — NAACL 2025 · arXiv:2508.12662</div></div></li>
+        <li class="pub"><span class="n">2</span><div class="body"><div class="title">Ventana a la Verdad: A Chatbot Application for Navigating The Colombian Truth Commission's Archives</div><div class="meta"><strong>A. Sokol</strong>, M. L. Sisk, J. E. Alvarez, N. Chawla — ACM WSDM 2025</div></div></li>
+        <li class="pub"><span class="n">3</span><div class="body"><div class="title">BenchmarkCards: Standardized Documentation for Large Language Model Benchmarks</div><div class="meta"><strong>A. Sokol</strong>, E. Daly, M. Hind, D. Piorkowski, X. Zhang, N. Moniz, N. Chawla — arXiv:2410.12974 · 2024</div></div></li>
+        <li class="pub"><span class="n">4</span><div class="body"><div class="title">Conformalized Selective Regression</div><div class="meta"><strong>A. Sokol</strong>, N. Moniz, N. Chawla — arXiv:2402.16300 · 2024</div></div></li>
+        <li class="pub"><span class="n">5</span><div class="body"><div class="title">Neural Network Modeling and What‑If Scenarios: Applications for Market Development Forecasting</div><div class="meta">V. Kuskova, D. Zaytsev, G. Khvatsky, <strong>A. Sokol</strong> — Applications in Reliability and Statistical Computing, Springer · 2023</div></div></li>
+        <li class="pub"><span class="n">6</span><div class="body"><div class="title">Searching for Coherence in a Fragmented Field: Temporal and Keywords Network Analysis in Political Science</div><div class="meta">D. G. Zaytsev, V. V. Kuskova, G. S. Khvatsky, <strong>A. A. Sokol</strong> — Network Science · 2023</div></div></li>
+        <li class="pub"><span class="n">7</span><div class="body"><div class="title">Expanding the Boundaries of Interdisciplinary Field: Contribution of Network Science Journal</div><div class="meta">V. V. Kuskova, D. G. Zaytsev, G. S. Khvatsky, <strong>A. A. Sokol</strong>, M. D. Vorobeva, R. A. Kamalov — Network Science · 2023</div></div></li>
+        <li class="pub"><span class="n">8</span><div class="body"><div class="title">Computational Tools of Media Analysis for Corporate Policy Effectiveness Evaluation</div><div class="meta">G. S. Khvatsky, D. G. Zaytsev, V. V. Kuskova, <strong>A. A. Sokol</strong> — Reliability and Maintainability Assessment of Industrial Systems, Springer · 2022</div></div></li>
+        <li class="pub"><span class="n">9</span><div class="body"><div class="title">Cross‑National Comparison of Protest Publics' Roles as Drivers of Change</div><div class="meta">D. G. Zaytsev, A. I. Galina, <strong>A. A. Sokol</strong> — Protest Publics: Toward a New Concept of Mass Civic Action · 2019</div></div></li>
+      </ul>
+    </section>
+
+    <!-- Teaching & Fellowships -->
+    <section class="section" id="teaching">
+      <h3>Teaching & Academic Service</h3>
+      <ul class="list">
+        <li><strong>Teaching Assistant:</strong> Data Science; AI for Social Good — Notre Dame</li>
+        <li><strong>Associate Director:</strong> DeMAS‑Center Statistical Consulting</li>
+        <li><strong>Online TA:</strong> Network Analysis; Contemporary Data Analysis; Advanced Probability & Stochastic Processes</li>
+      </ul>
+    </section>
+
+    <section class="section" id="fellowships">
+      <h3>Fellowships & Honors</h3>
+      <ul class="list">
+        <li><strong>2025:</strong> Tech Ethics Fellowship, University of Notre Dame</li>
+        <li><strong>2024–2025:</strong> Graduate Justice Fellowship, University of Notre Dame</li>
+        <li><strong>2023–2025:</strong> Lucy Scholar, University of Notre Dame</li>
+        <li><strong>2022:</strong> Open Research Laboratory Fellow, UIUC</li>
+      </ul>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+      <h3>Connect & Collaborate</h3>
+      <div class="actions">
+        <a href="/pages/cv/CV_final.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+        <a href="mailto:asokol@nd.edu">Email</a>
+        <a href="https://github.com/SokolAnn" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/sokolann/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://scholar.google.com/citations?user=wrEaQEQAAAAJ&hl=ru" target="_blank" rel="noopener">Google Scholar</a>
+      </div>
+    </section>
+
+    </main>
+
+    <footer>
+      © 2025 Anna Sokol · Department of Computer Science & Engineering, University of Notre Dame
+    </footer>
+  </div>
 </body>
 </html>
+<script>
+  // Add current page class to nav links
+  document.querySelectorAll('nav.nav a').forEach(link => {
+    if (link.getAttribute('href') === window.location.hash.slice(1)) {
+      link.classList.add('current');
+    }
+  });
+
