@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Anna Sokol | PhD Researcher</title>
+  <meta name="description" content="Anna Sokol — PhD candidate at the University of Notre Dame. I study language models for social good: wildlife conservation, access to truth commission archives, and careful AI evaluation." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;800;900&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink:#111;      /* headline black */
+      --gray-1:#6b7280;/* text secondary */
+      --paper:#fff;
+      --rule:#222;     /* rule color */
+      --accent:#002147;/* quiet navy */
+      --max: 1040px;   /* column width */
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      background:#fafafa;
+      color:var(--ink);
+      font:400 16px/1.6 "Source Serif Pro", Georgia, serif;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
+
+    .wrap{max-width:var(--max);margin:auto;background:var(--paper);box-shadow:0 10px 40px rgba(0,0,0,.06)}
+
+    /* Top strip */
+    .strip{background:var(--accent);color:#fff;font:500 12px/1.2 Inter,system-ui,sans-serif;padding:8px 20px;display:flex;gap:16px;justify-content:space-between;align-items:center}
+    .strip a{color:#fff;text-decoration:none;opacity:.95}
+    .strip a:hover{text-decoration:underline}
+
+    /* Masthead */
+    .mast{padding:28px 22px 18px;border-bottom:1px solid var(--rule);position:relative}
+    .mast::before{content:"";position:absolute;left:22px;right:22px;top:0;height:3px;background:var(--accent)}
+    .kicker{font:600 11px/1 Inter,system-ui,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--gray-1)}
+    h1.name{font:900 56px/0.95 "Playfair Display",serif;letter-spacing:-.02em;margin:10px 0 6px}
+    .edition{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:10px;padding-top:10px;border-top:1px solid #cfcfcf;font:500 12px/1.4 Inter,system-ui,sans-serif;color:var(--gray-1);text-transform:uppercase;letter-spacing:.06em}
+
+    /* Nav */
+    nav.nav{border-bottom:3px double var(--rule);padding:10px 16px}
+    nav.nav ul{list-style:none;display:flex;flex-wrap:wrap;gap:22px;justify-content:center;margin:0}
+    nav.nav a{font:600 12px/1 Inter,system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);text-decoration:none;border-bottom:2px solid transparent;padding-bottom:4px}
+    nav.nav a:hover{border-bottom-color:var(--accent)}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1.4fr .9fr;gap:26px;padding:26px 22px;border-bottom:1px solid #e5e5e5}
+    .hero h2{font:800 36px/1.1 "Playfair Display",serif;margin:4px 0 10px}
+    .hero p{margin:0;color:#2b2b2b}
+    .byline{font:600 11px/1 Inter,system-ui,sans-serif;color:var(--gray-1);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+    .hero img{width:100%;height:auto;border:1px solid #ddd;box-shadow:0 8px 24px rgba(0,0,0,.06)}
+    .caption{font:12px/1.4 Inter,system-ui,sans-serif;color:#666;margin-top:6px}
+
+    .cols{columns:2;column-gap:26px;text-align:justify}
+    .lead{font-size:18px}
+
+    /* Sections */
+    .section{padding:24px 22px;border-top:3px double var(--rule)}
+    .section h3{font:700 14px/1 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.14em;margin:4px 0 14px}
+    .cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+    .card{border-right:1px solid #e5e5e5;padding-right:16px}
+    .card:last-child{border-right:none}
+    .card h4{font:700 20px/1.2 "Playfair Display",serif;margin:0 0 6px}
+    .card .meta{font:600 11px/1 Inter,system-ui,sans-serif;color:var(--gray-1);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+    .card p{margin:0;color:#333}
+
+    /* Simple list styles */
+    .list{display:grid;gap:12px}
+    .list li{list-style:none;padding:10px 0;border-bottom:1px dotted #d7d7d7}
+    .list li:last-child{border-bottom:none}
+    .pub .n{float:left;font:900 26px/1 "Playfair Display",serif;color:var(--accent);width:32px}
+    .pub .body{overflow:hidden}
+    .pub .title{font:700 16px/1.3 "Playfair Display",serif}
+    .pub .meta{font:italic 13px/1.4 "Source Serif Pro",serif;color:#666}
+
+    /* Contact */
+    .contact{background:var(--accent);color:#fff;text-align:center;padding:28px 22px}
+    .contact h3{font:800 24px/1.2 "Playfair Display",serif;margin:0 0 14px}
+    .actions{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+    .actions a{border:2px solid #fff;color:#fff;text-decoration:none;font:600 14px/1 Inter,system-ui,sans-serif;padding:10px 18px}
+    .actions a:hover{background:#fff;color:var(--accent)}
+
+    footer{border-top:3px double var(--rule);background:#fbfbfb;text-align:center;padding:18px 22px;font:500 12px/1.6 Inter,system-ui,sans-serif;color:#666}
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero{grid-template-columns:1fr}
+      .cols{columns:1}
+      .cards{grid-template-columns:1fr}
+      h1.name{font-size:44px}
+      .hero h2{font-size:28px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- Thin university strip -->
+    <div class="strip">
+      <div>University of Notre Dame · Department of Computer Science & Engineering</div>
+      <div>
+        <a href="mailto:asokol@nd.edu">Email</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://github.com/SokolAnn" target="_blank" rel="noopener">GitHub</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://www.linkedin.com/in/sokolann/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+
+    <!-- Masthead -->
+    <header class="mast" role="banner">
+      <div class="kicker">4th‑Year PhD Candidate</div>
+      <h1 class="name">ANNA&nbsp;SOKOL</h1>
+      <div class="edition">
+        <span>Notre Dame, Indiana</span>
+        <span>Advisor: Prof. Nitesh Chawla</span>
+        <span>Since 2022</span>
+      </div>
+    </header>
+
+    <!-- Nav -->
+    <nav class="nav" aria-label="Primary">
+      <ul>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#teaching">Teaching</a></li>
+        <li><a href="#fellowships">Fellowships</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Hero (short, human, modest) -->
+    <section class="hero" id="research">
+      <div>
+        <div class="byline">Dissertation · AI for Social Good</div>
+        <h2>Language Models, used carefully, to help people and nature</h2>
+        <p class="lead">I’m a PhD student at Notre Dame. I work with Prof. Nitesh Chawla on three quiet, practical threads: supporting wildlife conservation, opening access to Colombia’s Truth Commission archives, and making AI evaluation more honest and useful.</p>
+      </div>
+      <figure>
+        <!-- Replace src with your photo filename. Example: photo_2025-08-22_14-16-04.jpg -->
+        <img src="photo.jpg" alt="Portrait of Anna Sokol" class="hero-photo" />
+        <figcaption class="caption">Anna Sokol · University of Notre Dame</figcaption>
+      </figure>
+    </section>
+
+    <!-- Research highlights (simple) -->
+    <section class="section">
+      <h3>Research Highlights</h3>
+      <div class="cards">
+        <article class="card">
+          <h4>Wildlife & Conservation</h4>
+          <div class="meta">LLMs for scientific discovery · 2024–2025</div>
+          <p>Tools that read, connect, and surface ecological evidence to support real conservation work.</p>
+        </article>
+        <article class="card">
+          <h4>Truth & Reconciliation</h4>
+          <div class="meta">Colombian archives · 2024–2025</div>
+          <p>Search and guidance for communities navigating the Truth Commission’s records.</p>
+        </article>
+        <article class="card">
+          <h4>Risk & Benchmarking</h4>
+          <div class="meta">Evaluation practices · 2023–2024</div>
+          <p>Clearer documentation and risk checks so evaluations reflect real use.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- News -->
+    <section class="section" id="news">
+      <h3>Latest News</h3>
+      <ul class="list">
+        <li><strong>Apr 2025:</strong> Paper accepted at NAACL 2025 (multilingual LLM evaluation).</li>
+        <li><strong>Mar 2025:</strong> “Ventana a la Verdad” accepted at ACM WSDM 2025.</li>
+        <li><strong>Jan 2025:</strong> Awarded Tech Ethics Fellowship.</li>
+        <li><strong>Oct 2024:</strong> BenchmarkCards framework on arXiv.</li>
+        <li><strong>Aug 2024:</strong> Talk at CODS‑COMAD 2024 (AI risk assessment).</li>
+      </ul>
+    </section>
+
+    <!-- Publications (compact newspaper list) -->
+    <section class="section" id="publications">
+      <h3>Selected Publications</h3>
+      <ul class="list">
+        <li class="pub"><span class="n">1</span><div class="body"><div class="title">Breaking Language Barriers: Equitable Performance in Multilingual LMs</div><div class="meta">T. Nagar, G. Khvatskii, <strong>A. Sokol</strong>, N. V. Chawla — NAACL 2025 · arXiv:2508.12662</div></div></li>
+        <li class="pub"><span class="n">2</span><div class="body"><div class="title">Ventana a la Verdad: A Chatbot for Colombia’s Truth Commission Archives</div><div class="meta"><strong>A. Sokol</strong>, M. L. Sisk, J. E. Alvarez, N. Chawla — ACM WSDM 2025</div></div></li>
+        <li class="pub"><span class="n">3</span><div class="body"><div class="title">BenchmarkCards: Standardized Documentation for LLM Benchmarks</div><div class="meta"><strong>A. Sokol</strong>, E. Daly, M. Hind, D. Piorkowski, X. Zhang, N. Moniz, N. Chawla — arXiv:2410.12974 (2024)</div></div></li>
+        <li class="pub"><span class="n">4</span><div class="body"><div class="title">Conformalized Selective Regression</div><div class="meta"><strong>A. Sokol</strong>, N. Moniz, N. Chawla — arXiv:2402.16300 (2024)</div></div></li>
+      </ul>
+    </section>
+
+    <!-- Teaching & Fellowships (compact) -->
+    <section class="section" id="teaching">
+      <h3>Teaching & Academic Service</h3>
+      <ul class="list">
+        <li><strong>Teaching Assistant:</strong> Data Science; AI for Social Good — Notre Dame</li>
+        <li><strong>Associate Director:</strong> DeMAS‑Center Statistical Consulting</li>
+        <li><strong>Online TA:</strong> Network Analysis; Contemporary Data Analysis; Advanced Probability & Stochastic Processes</li>
+      </ul>
+    </section>
+
+    <section class="section" id="fellowships">
+      <h3>Fellowships & Honors</h3>
+      <ul class="list">
+        <li><strong>2025:</strong> Tech Ethics Fellowship, University of Notre Dame</li>
+        <li><strong>2024–2025:</strong> Graduate Justice Fellowship, University of Notre Dame</li>
+        <li><strong>2023–2025:</strong> Lucy Scholar, University of Notre Dame</li>
+        <li><strong>2022:</strong> Open Research Laboratory Fellow, UIUC</li>
+      </ul>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+      <h3>Connect & Collaborate</h3>
+      <div class="actions">
+        <a href="mailto:asokol@nd.edu">Email</a>
+        <a href="https://github.com/SokolAnn" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/sokolann/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://scholar.google.com/citations?user=wrEaQEQAAAAJ&hl=ru" target="_blank" rel="noopener">Google Scholar</a>
+      </div>
+    </section>
+
+    <footer>
+      © 2025 Anna Sokol · Department of Computer Science & Engineering, University of Notre Dame
+    </footer>
+  </div>
+</body>
+</html>
+
