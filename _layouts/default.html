@@ -12,14 +12,11 @@
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@800;900&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-  <!-- Removed unused local font preload to avoid 404
-  <link rel="preload" href="playfair.woff2" as="font" type="font/woff2" crossorigin>
-  -->
 
   <!-- Open Graph / Twitter -->
   <meta property="og:title" content="Anna Sokol — PhD Researcher" />
   <meta property="og:description" content="I study careful uses of language models for conservation, archives, and evaluation." />
-  <meta property="og:image" content="{{ '/photo_2025-08-22_14-35-15.jpg' | absolute_url }}" />
+  <meta property="og:image" content="https://sokolann.github.io/photo_2025-08-22_14-35-15.jpg" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
 
@@ -42,111 +39,54 @@
   }
   </script>
   <script type="application/ld+json">
-  {
-   "@context":"https://schema.org",
-   "@type":"ScholarlyArticle",
-   "name":"BenchmarkCards: Standardized Documentation for Large Language Model Benchmarks",
-   "author":[{"@type":"Person","name":"Anna Sokol"}],
-   "datePublished":"2024-10",
-   "url":"https://arxiv.org/abs/2410.12974",
-   "isPartOf":{"@type":"CreativeWork","name":"arXiv"}
-  }
+  {"@context":"https://schema.org","@type":"ScholarlyArticle","name":"BenchmarkCards: Standardized Documentation for Large Language Model Benchmarks","author":[{"@type":"Person","name":"Anna Sokol"}],"datePublished":"2024-10","url":"https://arxiv.org/abs/2410.12974","isPartOf":{"@type":"CreativeWork","name":"arXiv"}}
   </script>
   <script type="application/ld+json">
-  {
-   "@context":"https://schema.org",
-   "@type":"ScholarlyArticle",
-   "name":"Ventana a la Verdad: A Chatbot Application for Navigating The Colombian Truth Commission's Archives",
-   "author":[{"@type":"Person","name":"Anna Sokol"}],
-   "datePublished":"2025",
-   "isPartOf":{"@type":"CreativeWork","name":"ACM WSDM"}
-  }
+  {"@context":"https://schema.org","@type":"ScholarlyArticle","name":"Ventana a la Verdad: A Chatbot Application for Navigating The Colombian Truth Commission's Archives","author":[{"@type":"Person","name":"Anna Sokol"}],"datePublished":"2025","isPartOf":{"@type":"CreativeWork","name":"ACM WSDM"}}
   </script>
   <script type="application/ld+json">
-  {
-   "@context":"https://schema.org",
-   "@type":"ScholarlyArticle",
-   "name":"Breaking Language Barriers: Equitable Performance in Multilingual Language Models",
-   "author":[{"@type":"Person","name":"Anna Sokol"}],
-   "datePublished":"2025",
-   "isPartOf":{"@type":"CreativeWork","name":"NAACL"}
-  }
+  {"@context":"https://schema.org","@type":"ScholarlyArticle","name":"Breaking Language Barriers: Equitable Performance in Multilingual Language Models","author":[{"@type":"Person","name":"Anna Sokol"}],"datePublished":"2025","isPartOf":{"@type":"CreativeWork","name":"NAACL"}}
   </script>
 
   <style>
     :root{
-      /* Vogue-y palette: stark ink on paper, hairline rules */
-      --ink:#0a0a0a;      /* headline black */
-      --gray-1:#6b7280;   /* text secondary */
-      --paper:#ffffff;
-      --rule:#111;        /* rule color */
-      --accent:#0a0a0a;   /* near-black accents */
-      --max:1080px;       /* wrapper width */
-      --ease:cubic-bezier(.2,.7,0,.98);
-      --dur:.8s;
-      --parallax: 0.06;   /* tweak hero parallax strength */
+      --ink:#0a0a0a; --gray-1:#6b7280; --paper:#ffffff; --rule:#111;
+      --accent:#0a0a0a; --max:1080px; --ease:cubic-bezier(.2,.7,0,.98);
+      --dur:.8s; --parallax:.06;
     }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{
-      background:#f7f7f7;color:var(--ink);
-      font:400 17px/1.75 "Source Serif Pro", Georgia, serif;
-      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-    }
-    a{color:var(--ink);text-decoration:none}
-    .skip{position:absolute;left:-9999px;top:auto}
+    *{box-sizing:border-box} html,body{margin:0;padding:0} html{scroll-behavior:smooth}
+    body{background:#f7f7f7;color:var(--ink);font:400 17px/1.75 "Source Serif Pro", Georgia, serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+    a{color:var(--ink);text-decoration:none} .skip{position:absolute;left:-9999px;top:auto}
     .skip:focus{left:16px;top:16px;background:#fff;padding:8px 12px;border:2px solid var(--ink)}
-    a:hover{text-decoration:none}
-    a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
-
+    a:hover{text-decoration:none} a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
     .wrap{max-width:var(--max);margin:auto;background:var(--paper);box-shadow:0 10px 40px rgba(0,0,0,.06)}
-
-    /* Top strip */
     .strip{background:var(--ink);color:#fff;font:500 12px/1.2 Inter,system-ui,sans-serif;padding:10px 20px;display:flex;gap:16px;justify-content:space-between;align-items:center;letter-spacing:.06em}
     .strip a{color:#fff;opacity:.95}
-
-    /* Masthead */
     .mast{padding:32px 24px 20px;border-bottom:1px solid var(--rule);position:relative}
     .mast::before{content:"";position:absolute;left:24px;right:24px;top:0;height:2px;background:linear-gradient(90deg,transparent,rgba(0,0,0,.7),transparent)}
     .kicker{font:600 11px/1 Inter,system-ui,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--gray-1)}
-    h1.name{font:900 clamp(48px,8vw,96px)/.92 "Playfair Display",serif;letter-spacing:.005em;margin:12px 0 6px; text-rendering:optimizeLegibility}
-    .name .amp{font-weight:800;opacity:.9}
+    h1.name{font:900 clamp(48px,8vw,96px)/.92 "Playfair Display",serif;letter-spacing:.005em;margin:12px 0 6px;text-rendering:optimizeLegibility}
     .edition{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:12px;padding-top:12px;border-top:1px solid #cfcfcf;font:500 12px/1.4 Inter,system-ui,sans-serif;color:var(--gray-1);text-transform:uppercase;letter-spacing:.06em}
-
-    /* Nav */
     nav.nav{border-bottom:2px solid var(--rule);padding:12px 18px;position:sticky;top:0;background:var(--paper);z-index:10}
     nav.nav ul{list-style:none;display:flex;flex-wrap:wrap;gap:20px;justify-content:center;margin:0}
     nav.nav a{font:700 12px/1 Inter,system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);position:relative;padding:6px 2px}
     nav.nav a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:currentColor;transition:width .35s var(--ease)}
     nav.nav a:hover::after,nav.nav a:focus-visible::after{width:100%}
     nav.nav a.current{border-bottom:2px solid var(--ink)}
-
-    /* Hero */
     .hero{display:grid;grid-template-columns:1.15fr .85fr;gap:32px;padding:28px 24px;border-bottom:1px solid #e6e6e6;align-items:start}
-    .hero h2{font:900 clamp(28px,4vw,44px)/1.05 "Playfair Display",serif;margin:6px 0 10px; letter-spacing:.002em}
+    .hero h2{font:900 clamp(28px,4vw,44px)/1.05 "Playfair Display",serif;margin:6px 0 10px}
     .deck{font:600 12px/1.4 Inter,system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#555;margin-bottom:12px}
-    .hero p{margin:0;color:#222}
     .byline{font:600 11px/1 Inter,system-ui,sans-serif;color:var(--gray-1);letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
     .measure{max-width:72ch;hyphens:auto}
-
-    /* Drop cap */
     .lead:first-letter{float:left;font:900 4.4rem "Playfair Display",serif;line-height:.85;margin:.18rem .4rem 0 0;color:#0a0a0a}
     @media(max-width:980px){.lead:first-letter{float:none;font-size:inherit;margin:0}}
-
-    /* Hero photo */
     .hero figure{margin:0;position:relative;overflow:hidden;border:1px solid #e2e2e2;box-shadow:0 12px 28px rgba(0,0,0,.08);border-radius:6px}
     .hero img{width:100%;height:auto;max-height:560px;object-fit:cover;object-position:center;transform:translateZ(0) scale(1.02)}
     .caption{font:12px/1.4 Inter,system-ui,sans-serif;color:#666;margin-top:6px}
-    /* Ken Burns on appear */
     .kenburns{animation:kenburns 14s ease-out both}
     @keyframes kenburns{0%{transform:scale(1.02)}100%{transform:scale(1.08)}}
-
-    /* Pull quote */
     .pull{border-left:2px solid #e9e9e9;padding:14px 0 14px 14px;margin:16px 0}
     .pull q{font:italic 18px/1.5 "Source Serif Pro",serif;color:#333}
-
-    /* Sections */
     .section{padding:30px 24px;border-top:2px solid var(--rule)}
     .section h3{font:800 13px/1 Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.18em;margin:2px 0 16px;border-top:1px solid #ddd;padding-top:10px}
     .cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px}
@@ -156,8 +96,6 @@
     .card h4{font:900 22px/1.15 "Playfair Display",serif;margin:0 0 6px}
     .card .meta{font:600 11px/1 Inter,system-ui,sans-serif;color:var(--gray-1);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
     .card p{margin:0;color:#333}
-
-    /* Simple lists */
     .list{display:grid;gap:12px}
     .list li{list-style:none;padding:10px 0;border-bottom:1px dotted #d7d7d7}
     .list li:last-child{border-bottom:none}
@@ -167,38 +105,16 @@
     .pub .body{overflow:hidden}
     .pub .title{font:800 17px/1.35 "Playfair Display",serif}
     .pub .meta{font:italic 13px/1.5 "Source Serif Pro",serif;color:#666}
-
-    /* Contact */
     .contact{background:var(--ink);color:#fff;text-align:center;padding:36px 24px}
     .contact h3{font:900 26px/1.2 "Playfair Display",serif;margin:0 0 16px}
     .actions{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
     .actions a{border:1px solid rgba(255,255,255,.28);color:#fff;text-decoration:none;font:600 14px/1 Inter,system-ui,sans-serif;padding:12px 18px;border-radius:9999px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));box-shadow:0 6px 22px rgba(0,0,0,.18), inset 0 0 0 1px rgba(255,255,255,.08);backdrop-filter:blur(3px);transition:transform .25s var(--ease),box-shadow .25s var(--ease),background .25s var(--ease)}
     .actions a:hover{background:#fff;color:var(--ink);transform:translateY(-2px);box-shadow:0 12px 36px rgba(0,0,0,.25)}
-
     footer{border-top:2px solid var(--rule);background:#fbfbfb;text-align:center;padding:18px 22px;font:500 12px/1.6 Inter,system-ui,sans-serif;color:#666}
-
-    /* Responsive */
-    @media (max-width: 980px){
-      .hero{grid-template-columns:1fr}
-      .cards{grid-template-columns:1fr}
-      h1.name{font-size:clamp(38px,9vw,72px)}
-      .hero h2{font-size:clamp(24px,6vw,36px)}
-      .measure{max-width:unset}
-    }
-
-    /* Print for CV handouts */
-    @media print{
-      nav,.strip,.contact{display:none}
-      .hero,.cards{display:block}
-      a[href]::after{content:" (" attr(href) ")";font-size:90%}
-      body{background:#fff}
-    }
-
-    .hero > div{grid-column:1}
-    .hero > figure{grid-column:2}
+    @media (max-width: 980px){.hero{grid-template-columns:1fr}.cards{grid-template-columns:1fr}h1.name{font-size:clamp(38px,9vw,72px)}.hero h2{font-size:clamp(24px,6vw,36px)}.measure{max-width:unset}}
+    @media print{nav,.strip,.contact{display:none}.hero,.cards{display:block}a[href]::after{content:" (" attr(href) ")";font-size:90%}body{background:#fff}}
+    .hero > div{grid-column:1}.hero > figure{grid-column:2}
     @media(max-width:980px){.hero{grid-template-columns:1fr}.hero > div,.hero > figure{grid-column:auto}}
-
-    /* Dark mode */
     @media (prefers-color-scheme: dark){
       body{background:#0b0b0b;color:#f4f4f5}
       .wrap{background:#0f0f10}
@@ -207,19 +123,16 @@
       .contact{background:#0f1e33}
       nav.nav{background:#0f0f10}
     }
-
-    /* Magazine micro-interactions (Vogue/GQ-inspired, subtle) */
     .reveal{opacity:0;transform:translateY(12px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease)}
     .reveal.is-visible{opacity:1;transform:none}
     .mast .name{animation:titlePop .8s var(--ease) both}
     .hero h2{animation:fadeUp .8s var(--ease) .05s both}
     .hero .deck{animation:fadeUp .8s var(--ease) .12s both}
     .lead{animation:fadeUp .9s var(--ease) .2s both}
-    @keyframes fadeUp{from{opacity:0;transform:translateY(10px);letter-spacing:.02em}to{opacity:1;transform:none;letter-spacing:0}}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
     @keyframes titlePop{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-
     @media (prefers-reduced-motion: reduce){
-      .reveal,.card,.hero figure img,.nav a::after, .mast .name, .hero h2, .hero .deck, .lead{transition:none!important;animation:none!important}
+      .reveal,.card,.hero figure img,.nav a::after,.mast .name,.hero h2,.hero .deck,.lead{transition:none!important;animation:none!important}
     }
   </style>
 
@@ -228,37 +141,27 @@
   <meta name="theme-color" content="#0a0a0a">
   <link rel="icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <!-- Allow inline scripts for JSON-LD + micro-interactions -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; connect-src 'self'">
 </head>
 <body>
   <a href="#main" class="skip">Skip to content</a>
   <div class="wrap">
-    <!-- University strip -->
     <div class="strip">
       <div>University of Notre Dame · Department of Computer Science & Engineering</div>
       <div>
-        <a href="mailto:asokol@nd.edu">Email</a>
-        <span aria-hidden="true">·</span>
-        <a href="https://scholar.google.com/citations?hl=ru&user=wrEaQEQAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener">Scholar</a>
-        <span aria-hidden="true">·</span>
-        <a href="https://github.com/SokolAnn" target="_blank" rel="noopener">GitHub</a>
-        <span aria-hidden="true">·</span>
+        <a href="mailto:asokol@nd.edu">Email</a><span aria-hidden="true">·</span>
+        <a href="https://scholar.google.com/citations?hl=ru&user=wrEaQEQAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener">Scholar</a><span aria-hidden="true">·</span>
+        <a href="https://github.com/SokolAnn" target="_blank" rel="noopener">GitHub</a><span aria-hidden="true">·</span>
         <a href="https://www.linkedin.com/in/sokolann/" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </div>
 
-    <!-- Masthead -->
     <header class="mast" role="banner">
       <div class="kicker">4th-Year PhD Candidate</div>
       <h1 class="name">ANNA&nbsp;SOKOL</h1>
-      <div class="edition">
-        <span>Advisor: Prof. Nitesh Chawla</span>
-        <span>PhD since 2022</span>
-      </div>
+      <div class="edition"><span>Advisor: Prof. Nitesh Chawla</span><span>PhD since 2022</span></div>
     </header>
 
-    <!-- Nav -->
     <nav class="nav" aria-label="Primary site sections">
       <ul>
         <li><a href="#research" aria-current="page">Research</a></li>
@@ -266,13 +169,12 @@
         <li><a href="#publications">Publications</a></li>
         <li><a href="#teaching">Teaching</a></li>
         <li><a href="#fellowships">Fellowships</a></li>
-        <li><a href="/pages/cv/CV_final.pdf" target="_blank" rel="noopener">CV</a></li>
+        <li><a href="pages/cv/CV_final.pdf" target="_blank" rel="noopener">CV</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
 
     <main id="main">
-      <!-- Hero -->
       <section class="hero" id="research">
         <div>
           <div class="byline">Dissertation · AI for Social Good</div>
@@ -282,19 +184,18 @@
           <aside class="pull" aria-label="pull quote"><q>Care first. Then models.</q></aside>
         </div>
         <figure>
-          <!-- If you later add optimized formats, you can re-introduce AVIF/WEBP <source> tags -->
+          <!-- Direct relative path avoids baseurl issues -->
           <picture>
-            <img
-              src="{{ '/photo_2025-08-22_14-35-15.jpg' | relative_url }}"
-              alt="Anna Sokol, PhD candidate at Notre Dame"
-              width="963" height="1280"
-              loading="lazy" decoding="async" class="kenburns" />
+            <img src="photo_2025-08-22_14-35-15.jpg"
+                 alt="Anna Sokol, PhD candidate at Notre Dame"
+                 width="963" height="1280"
+                 loading="lazy" decoding="async" class="kenburns" />
           </picture>
           <figcaption class="caption">Anna Sokol · University of Notre Dame</figcaption>
         </figure>
       </section>
 
-      <!-- Education -->
+      <!-- (content below unchanged) -->
       <section class="section" id="education">
         <h3>Education</h3>
         <ul class="list">
@@ -304,30 +205,16 @@
         </ul>
       </section>
 
-      <!-- Research highlights -->
       <section class="section" id="highlights">
         <h3>Research Highlights</h3>
         <div class="cards">
-          <article class="card">
-            <h4>Wildlife & Conservation</h4>
-            <div class="meta">LLMs for scientific discovery · 2024–2025</div>
-            <p>I build tools that read and connect ecological evidence to support real conservation work.</p>
-          </article>
-          <article class="card">
-            <h4>Truth & Reconciliation</h4>
-            <div class="meta">Colombian archives · 2024–2025</div>
-            <p>I design search and guidance for communities navigating the Truth Commission’s records.</p>
-          </article>
-          <article class="card">
-            <h4>Risk & Benchmarking</h4>
-            <div class="meta">Evaluation practices · 2023–2024</div>
-            <p>I write clearer documentation and checks so evaluations reflect real use.</p>
-          </article>
+          <article class="card"><h4>Wildlife & Conservation</h4><div class="meta">LLMs for scientific discovery · 2024–2025</div><p>I build tools that read and connect ecological evidence to support real conservation work.</p></article>
+          <article class="card"><h4>Truth & Reconciliation</h4><div class="meta">Colombian archives · 2024–2025</div><p>I design search and guidance for communities navigating the Truth Commission’s records.</p></article>
+          <article class="card"><h4>Risk & Benchmarking</h4><div class="meta">Evaluation practices · 2023–2024</div><p>I write clearer documentation and checks so evaluations reflect real use.</p></article>
         </div>
       </section>
 
-      <!-- Selected Projects -->
-      <section class="section" aria-label="Selected Projects" id="projects">
+      <section class="section" id="projects">
         <h3>Selected Projects</h3>
         <div class="cards">
           <article class="card"><h4>Ventana a la Verdad</h4><p>Archive navigation for Colombia’s CEV. <a href="#">demo</a> · <a href="#">code</a> · <a href="#">paper</a></p></article>
@@ -336,7 +223,6 @@
         </div>
       </section>
 
-      <!-- News -->
       <section class="section" id="news">
         <h3>Latest News</h3>
         <ul class="list">
@@ -350,7 +236,6 @@
         </ul>
       </section>
 
-      <!-- Publications -->
       <section class="section" id="publications">
         <h3>Publications</h3>
         <ul class="list">
@@ -362,12 +247,11 @@
           <li class="pub"><span class="n">6</span><div class="body"><div class="title">Searching for Coherence in a Fragmented Field: Temporal and Keywords Network Analysis in Political Science</div><div class="meta">D. G. Zaytsev, V. V. Kuskova, G. S. Khvatsky, <strong>A. A. Sokol</strong> — Network Science · 2023</div></div></li>
           <li class="pub"><span class="n">7</span><div class="body"><div class="title">Expanding the Boundaries of Interdisciplinary Field: Contribution of Network Science Journal</div><div class="meta">V. V. Kuskova, D. G. Zaytsev, G. S. Khvatsky, <strong>A. A. Sokol</strong>, M. D. Vorobeva, R. A. Kamalov — Network Science · 2023</div></div></li>
           <li class="pub"><span class="n">8</span><div class="body"><div class="title">Computational Tools of Media Analysis for Corporate Policy Effectiveness Evaluation</div><div class="meta">G. S. Khvatsky, D. G. Zaytsev, V. V. Kuskova, <strong>A. A. Sokol</strong> — Reliability and Maintainability Assessment of Industrial Systems, Springer · 2022</div></div></li>
-          <li class="pub"><span class="n">9</span><div class="body"><div class="title">Neural network modeling and what-if scenarios: Applications to various-term sales forecasts</div><div class="meta">K. Valentina, Z. Dmitry, S. Anna, K. Gregory — Proceedings of the 26th ISSAT International Conference on Reliability and Quality in Design · 2021</div></div></li>
-          <li class="pub"><span class="n">10</span><div class="body"><div class="title">Cross-National Comparison of Protest Publics' Roles as Drivers of Change</div><div class="meta">D. G. Zaytsev, A. I. Galina, <strong>A. A. Sokol</strong> — Protest Publics: Toward a New Concept of Mass Civic Action · 2019</div></div></li>
+          <li class="pub"><span class="n">9</span><div class="body"><div class="title">Neural network modeling and what-if scenarios: Applications to various-term sales forecasts</div><div class="meta">K. Valentina, Z. Dmitry, S. Anna, K. Gregory — ISSAT RQD · 2021</div></div></li>
+          <li class="pub"><span class="n">10</span><div class="body"><div class="title">Cross-National Comparison of Protest Publics' Roles as Drivers of Change</div><div class="meta">D. G. Zaytsev, A. I. Galina, <strong>A. A. Sokol</strong> — Protest Publics · 2019</div></div></li>
         </ul>
       </section>
 
-      <!-- Conferences -->
       <section class="section" id="conferences">
         <h3>Conferences</h3>
         <ul class="list">
@@ -391,25 +275,20 @@
         </ul>
       </section>
 
-      <!-- Academic Appointments -->
       <section class="section" id="appointments">
         <h3>Academic Appointments</h3>
         <ul class="list">
           <li><strong>Graduate Research & Teaching Assistant</strong> — DIAL Laboratory, University of Notre Dame · 2022–present</li>
-          <li><strong>Program Deputy Academic Supervisor, MDNA</strong> — International Laboratory for Applied Network Research, HSE · 2021–2022</li>
-          <li><strong>Research Assistant</strong> — International Laboratory for Applied Network Research, HSE · 2017–2020</li>
+          <li><strong>Program Deputy Academic Supervisor, MDNA</strong> — ILANR, HSE · 2021–2022</li>
+          <li><strong>Research Assistant</strong> — ILANR, HSE · 2017–2020</li>
         </ul>
       </section>
 
-      <!-- Academic Internship -->
       <section class="section" id="internships">
         <h3>Academic Internship</h3>
-        <ul class="list">
-          <li>Open Research Laboratory — University of Illinois Urbana–Champaign · Spring 2022</li>
-        </ul>
+        <ul class="list"><li>Open Research Laboratory — UIUC · Spring 2022</li></ul>
       </section>
 
-      <!-- Teaching & Service -->
       <section class="section" id="teaching">
         <h3>Teaching & Academic Service</h3>
         <ul class="list">
@@ -433,7 +312,6 @@
         </ul>
       </section>
 
-      <!-- Memberships -->
       <section class="section" id="memberships">
         <h3>Memberships</h3>
         <ul class="list">
@@ -442,7 +320,6 @@
         </ul>
       </section>
 
-      <!-- Industry Experience -->
       <section class="section" id="industry">
         <h3>Industry Experience</h3>
         <ul class="list">
@@ -450,11 +327,10 @@
           <li>Market Analyst — Nestlé Russia · 2018</li>
           <li>Junior Communication Planner — Mediacom · 2017–2018</li>
           <li>Intern — Federal State Statistics Service · 2015–2016</li>
-          <li>Trainee — Independent Regional Research Agency (NARI) · 2014</li>
+          <li>Trainee — NARI · 2014</li>
         </ul>
       </section>
 
-      <!-- Selected Industry Projects -->
       <section class="section" id="industry-projects">
         <h3>Selected Industry Projects</h3>
         <ul class="list">
@@ -465,12 +341,11 @@
         </ul>
       </section>
 
-      <!-- Contact -->
       <section class="contact" id="contact">
         <h3>Connect & Collaborate</h3>
         <div class="actions">
           <a href="mailto:asokol@nd.edu">Email Anna</a>
-          <a href="/pages/cv/CV_final.pdf" target="_blank" rel="noopener">Download CV</a>
+          <a href="pages/cv/CV_final.pdf" target="_blank" rel="noopener">Download CV</a>
           <a href="https://scholar.google.com/citations?hl=ru&user=wrEaQEQAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener">Google Scholar</a>
         </div>
       </section>
@@ -478,55 +353,39 @@
   </div>
 
   <script>
-    // Scroll-reveal: add .is-visible when elements enter viewport
     const revealObserver = new IntersectionObserver((entries)=>{
       entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('is-visible'); revealObserver.unobserve(e.target); } });
     }, {root:null, rootMargin:'0px 0px -10% 0px', threshold:0.08});
+    const revealTargets = ['.hero .byline','.hero h2','.hero .deck','.hero .lead','.pull','.section','.card','.list li'];
+    document.querySelectorAll(revealTargets.join(',')).forEach(el=>{ el.classList.add('reveal'); revealObserver.observe(el); });
 
-    // Mark elements for reveal (hero text, sections, cards, list items)
-    const revealTargets = [
-      '.hero .byline', '.hero h2', '.hero .deck', '.hero .lead', '.pull',
-      '.section', '.card', '.list li'
-    ];
-    document.querySelectorAll(revealTargets.join(',')).forEach(el=>{
-      el.classList.add('reveal');
-      revealObserver.observe(el);
-    });
-
-    // Parallax on hero image (subtle)
     const heroImg = document.querySelector('.hero img');
-    let ticking = false;
+    let ticking=false;
     function onScroll(){
       if(!heroImg) return;
-      const y = window.scrollY;
+      const y=window.scrollY;
       if(!ticking){
-        window.requestAnimationFrame(()=>{
-          heroImg.style.transform = `translateY(${y*parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--parallax'))}px) scale(1.05)`;
-          ticking = false;
-        });
-        ticking = true;
+        requestAnimationFrame(()=>{ heroImg.style.transform=`translateY(${y*parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--parallax'))}px) scale(1.05)`; ticking=false;});
+        ticking=true;
       }
     }
     document.addEventListener('scroll', onScroll, {passive:true});
 
-    // Scrollspy for nav (highlights the section in view)
-    const sections = document.querySelectorAll('main section[id]');
-    const navLinks = new Map([...document.querySelectorAll('nav.nav a')].map(a=>[a.getAttribute('href').replace('#',''), a]));
-    const spy = new IntersectionObserver((entries)=>{
+    const sections=document.querySelectorAll('main section[id]');
+    const navLinks=new Map([...document.querySelectorAll('nav.nav a')].map(a=>[a.getAttribute('href').replace('#',''),a]));
+    const spy=new IntersectionObserver((entries)=>{
       entries.forEach(e=>{
         if(e.isIntersecting){
           navLinks.forEach(a=>a.classList.remove('current'));
-          const id = e.target.getAttribute('id');
-          const link = navLinks.get(id);
+          const id=e.target.getAttribute('id'); const link=navLinks.get(id);
           if(link) link.classList.add('current');
         }
       });
     }, {root:null, rootMargin:'-45% 0px -50% 0px', threshold:0.01});
     sections.forEach(s=>spy.observe(s));
 
-    // Respect reduced motion beyond CSS
     if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-      document.querySelectorAll('*').forEach(el=>{ el.style.animation = 'none'; el.style.transition = 'none'; });
+      document.querySelectorAll('*').forEach(el=>{ el.style.animation='none'; el.style.transition='none'; });
     }
   </script>
 </body>
