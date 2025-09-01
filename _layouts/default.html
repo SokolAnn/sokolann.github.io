@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Anna Sokol | PhD Researcher</title>
-  <meta name="description" content="I study, build, and evaluate practical LLM tools with knowledge graphs for conservation, archives, and real‑world evaluation." />
+  <meta name="description" content="I study, build, and evaluate practical LLM tools with knowledge graphs for conservation, archives, and real-world evaluation." />
 
   <!-- Preconnects -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,16 +12,18 @@
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@800;900&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <!-- Removed unused local font preload to avoid 404
   <link rel="preload" href="playfair.woff2" as="font" type="font/woff2" crossorigin>
+  -->
 
   <!-- Open Graph / Twitter -->
   <meta property="og:title" content="Anna Sokol — PhD Researcher" />
   <meta property="og:description" content="I study careful uses of language models for conservation, archives, and evaluation." />
-  <meta property="og:image" content="photo_2025-08-22_14-35-15.jpg" />
+  <meta property="og:image" content="{{ '/photo_2025-08-22_14-35-15.jpg' | absolute_url }}" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- JSON‑LD Person -->
+  <!-- JSON-LD Person -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -73,7 +75,7 @@
 
   <style>
     :root{
-      /* Vogue‑y palette: stark ink on paper, hairline rules */
+      /* Vogue-y palette: stark ink on paper, hairline rules */
       --ink:#0a0a0a;      /* headline black */
       --gray-1:#6b7280;   /* text secondary */
       --paper:#ffffff;
@@ -206,7 +208,7 @@
       nav.nav{background:#0f0f10}
     }
 
-    /* Magazine micro‑interactions (Vogue/GQ‑inspired, subtle) */
+    /* Magazine micro-interactions (Vogue/GQ-inspired, subtle) */
     .reveal{opacity:0;transform:translateY(12px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease)}
     .reveal.is-visible{opacity:1;transform:none}
     .mast .name{animation:titlePop .8s var(--ease) both}
@@ -248,7 +250,7 @@
 
     <!-- Masthead -->
     <header class="mast" role="banner">
-      <div class="kicker">4th‑Year PhD Candidate</div>
+      <div class="kicker">4th-Year PhD Candidate</div>
       <h1 class="name">ANNA&nbsp;SOKOL</h1>
       <div class="edition">
         <span>Advisor: Prof. Nitesh Chawla</span>
@@ -275,21 +277,17 @@
         <div>
           <div class="byline">Dissertation · AI for Social Good</div>
           <h2>Large Language Models for Scientific Discovery</h2>
-          <div class="deck">Conservation, truth‑commission archives, and reliable evaluation.</div>
+          <div class="deck">Conservation, truth-commission archives, and reliable evaluation.</div>
           <p class="lead measure">My dissertation studies how to understand and deploy large language models in real scientific settings. We integrate LLMs with knowledge graphs, examine how people use them in practice, and test how knowledge graphs can improve reasoning, retrieval, and usefulness for applied research. I study, build, and evaluate practical tools with Prof. Nitesh Chawla. I help wildlife scientists find evidence, guide readers through Colombia’s Truth Commission archives, and make model evaluation match real work.</p>
           <aside class="pull" aria-label="pull quote"><q>Care first. Then models.</q></aside>
         </div>
         <figure>
+          <!-- If you later add optimized formats, you can re-introduce AVIF/WEBP <source> tags -->
           <picture>
-            <source type="avif" srcset="{{ '/photo_2025-08-22_14-35-15.avif' | relative_url }}">
-            <source type="webp" srcset="{{ '/photo_2025-08-22_14-35-15.webp' | relative_url }}">
-            <source type="jpg" srcset="photo_2025-08-22_14-35-15.jpg" />
-
             <img
-              src="_layouts/photo_2025-08-22_14-35-15.jpg" width="963" height="1280"
-              srcset="photo_2025-08-22_14-35-15.jpg 1024w, photo_2025-08-22_14-35-15.jpg 1536w, photo_2025-08-22_14-35-15.jpg 2048w"
-              sizes="(max-width: 980px) 100vw, 42vw"
+              src="{{ '/photo_2025-08-22_14-35-15.jpg' | relative_url }}"
               alt="Anna Sokol, PhD candidate at Notre Dame"
+              width="963" height="1280"
               loading="lazy" decoding="async" class="kenburns" />
           </picture>
           <figcaption class="caption">Anna Sokol · University of Notre Dame</figcaption>
@@ -360,12 +358,12 @@
           <li class="pub"><span class="n">2</span><div class="body"><div class="title">Ventana a la Verdad: A Chatbot Application for Navigating The Colombian Truth Commission's Archives</div><div class="meta"><strong>A. Sokol</strong>, M. L. Sisk, J. E. Alvarez, N. Chawla — ACM WSDM 2025</div></div></li>
           <li class="pub"><span class="n">3</span><div class="body"><div class="title">BenchmarkCards: Standardized Documentation for Large Language Model Benchmarks</div><div class="meta"><strong>A. Sokol</strong>, E. Daly, M. Hind, D. Piorkowski, X. Zhang, N. Moniz, N. Chawla — arXiv:2410.12974 · 2024</div></div></li>
           <li class="pub"><span class="n">4</span><div class="body"><div class="title">Conformalized Selective Regression</div><div class="meta"><strong>A. Sokol</strong>, N. Moniz, N. Chawla — arXiv:2402.16300 · 2024</div></div></li>
-          <li class="pub"><span class="n">5</span><div class="body"><div class="title">Neural Network Modeling and What‑If Scenarios: Applications for Market Development Forecasting</div><div class="meta">V. Kuskova, D. Zaytsev, G. Khvatsky, <strong>A. Sokol</strong> — Applications in Reliability and Statistical Computing, Springer · 2023</div></div></li>
+          <li class="pub"><span class="n">5</span><div class="body"><div class="title">Neural Network Modeling and What-If Scenarios: Applications for Market Development Forecasting</div><div class="meta">V. Kuskova, D. Zaytsev, G. Khvatsky, <strong>A. Sokol</strong> — Applications in Reliability and Statistical Computing, Springer · 2023</div></div></li>
           <li class="pub"><span class="n">6</span><div class="body"><div class="title">Searching for Coherence in a Fragmented Field: Temporal and Keywords Network Analysis in Political Science</div><div class="meta">D. G. Zaytsev, V. V. Kuskova, G. S. Khvatsky, <strong>A. A. Sokol</strong> — Network Science · 2023</div></div></li>
           <li class="pub"><span class="n">7</span><div class="body"><div class="title">Expanding the Boundaries of Interdisciplinary Field: Contribution of Network Science Journal</div><div class="meta">V. V. Kuskova, D. G. Zaytsev, G. S. Khvatsky, <strong>A. A. Sokol</strong>, M. D. Vorobeva, R. A. Kamalov — Network Science · 2023</div></div></li>
           <li class="pub"><span class="n">8</span><div class="body"><div class="title">Computational Tools of Media Analysis for Corporate Policy Effectiveness Evaluation</div><div class="meta">G. S. Khvatsky, D. G. Zaytsev, V. V. Kuskova, <strong>A. A. Sokol</strong> — Reliability and Maintainability Assessment of Industrial Systems, Springer · 2022</div></div></li>
-          <li class="pub"><span class="n">9</span><div class="body"><div class="title">Neural network modeling and what‑if scenarios: Applications to various‑term sales forecasts</div><div class="meta">K. Valentina, Z. Dmitry, S. Anna, K. Gregory — Proceedings of the 26th ISSAT International Conference on Reliability and Quality in Design · 2021</div></div></li>
-          <li class="pub"><span class="n">10</span><div class="body"><div class="title">Cross‑National Comparison of Protest Publics' Roles as Drivers of Change</div><div class="meta">D. G. Zaytsev, A. I. Galina, <strong>A. A. Sokol</strong> — Protest Publics: Toward a New Concept of Mass Civic Action · 2019</div></div></li>
+          <li class="pub"><span class="n">9</span><div class="body"><div class="title">Neural network modeling and what-if scenarios: Applications to various-term sales forecasts</div><div class="meta">K. Valentina, Z. Dmitry, S. Anna, K. Gregory — Proceedings of the 26th ISSAT International Conference on Reliability and Quality in Design · 2021</div></div></li>
+          <li class="pub"><span class="n">10</span><div class="body"><div class="title">Cross-National Comparison of Protest Publics' Roles as Drivers of Change</div><div class="meta">D. G. Zaytsev, A. I. Galina, <strong>A. A. Sokol</strong> — Protest Publics: Toward a New Concept of Mass Civic Action · 2019</div></div></li>
         </ul>
       </section>
 
@@ -420,7 +418,7 @@
           <li><strong>Course Instructor:</strong> Practical Regression Analysis — Coursera · HSE (2021)</li>
           <li><strong>Course Instructor:</strong> Introduction to Applied Analytics — HSE (2021)</li>
           <li><strong>Teaching Assistant:</strong> Data Science; AI for Social Good — Notre Dame</li>
-          <li><strong>Associate Director:</strong> DeMAS‑Center Statistical Consulting</li>
+          <li><strong>Associate Director:</strong> DeMAS-Center Statistical Consulting</li>
           <li><strong>Coursera TA:</strong> Network Analysis; Contemporary Data Analysis; Advanced Probability & Stochastic Processes</li>
         </ul>
       </section>
@@ -448,7 +446,7 @@
       <section class="section" id="industry">
         <h3>Industry Experience</h3>
         <ul class="list">
-          <li>Business Analyst — Saint‑Gobain Russia · 2019–2020</li>
+          <li>Business Analyst — Saint-Gobain Russia · 2019–2020</li>
           <li>Market Analyst — Nestlé Russia · 2018</li>
           <li>Junior Communication Planner — Mediacom · 2017–2018</li>
           <li>Intern — Federal State Statistics Service · 2015–2016</li>
@@ -460,7 +458,7 @@
       <section class="section" id="industry-projects">
         <h3>Selected Industry Projects</h3>
         <ul class="list">
-          <li>Project management dashboards for Saint‑Gobain (Russia & CIS) — 2020</li>
+          <li>Project management dashboards for Saint-Gobain (Russia & CIS) — 2020</li>
           <li>Market outlooks for coffee machines (Retail & Fuel) — Nestlé — 2019</li>
           <li>Advertising research: shaving & personal care — P&G via Mediacom — 2018</li>
           <li>Category research: washing liquids & dishwasher capsules — P&G via Mediacom — 2017</li>
@@ -480,7 +478,7 @@
   </div>
 
   <script>
-    // Scroll‑reveal: add .is-visible when elements enter viewport
+    // Scroll-reveal: add .is-visible when elements enter viewport
     const revealObserver = new IntersectionObserver((entries)=>{
       entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('is-visible'); revealObserver.unobserve(e.target); } });
     }, {root:null, rootMargin:'0px 0px -10% 0px', threshold:0.08});
@@ -533,8 +531,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
