@@ -1,7 +1,7 @@
-# Hi, I am Anna Sokol
+# Hi, I’m Anna Sokol
 
-I am a computer science student in my first year at the University of Notre Dame. My research interests lie in the challenges posed by imbalanced data and the application of machine learning algorithms to address them. I am dedicated to developing innovative solutions for handling imbalanced datasets in various domains, such as natural language processing.
+I am a fourth-year PhD student in Computer Science & Engineering at the University of Notre Dame, working with Prof. Nitesh Chawla in the DIAL Lab. My research combines large language models with knowledge graphs, human evaluation, and community partnerships so that AI systems reflect the needs of the people who rely on them.
 
-Furthermore, I have gained valuable experience working with large language models and I am eager to further investigate the capabilities of these models. My aim is to find new and effective ways to use them to enhance the performance of machine learning algorithms.
+Right now I am co-designing language tools with wildlife scientists to accelerate evidence gathering, guiding readers through Colombia’s Truth Commission archives with bilingual navigation support, and documenting evaluation practices that make benchmark reporting more transparent. I love building prototypes with collaborators, pressure-testing them in the field, and translating what we learn into responsible deployment guidance.
 
-I am honored to be a part of the esteemed community at Notre Dame, where I have access to top-notch resources and distinguished faculty in the field of computer science. I am passionate about making new breakthroughs and contributing to the growth of the field.
+Before my PhD, I led analytics and research projects across industry and academia in Russia and the United States. Those experiences continue to shape how I collaborate with interdisciplinary teams, mentor students, and explore the social impacts of AI.
