@@ -10,9 +10,26 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@800;900&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 
+  <!-- Inline SVG favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>A</text></svg>">
+
+  <meta property="og:title" content="Anna Sokol — PhD Researcher" />
+  <meta property="og:description" content="I study careful uses of language models for conservation, archives, and evaluation." />
+  <meta property="og:image" content="https://sokolann.github.io/assets/images/photo_2025-08-22_14-35-15.jpg" />
+  <meta property="og:url" content="https://sokolann.github.io/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#121214" media="(prefers-color-scheme: dark)" />
+
   <style>
+    /* ── Page load transition ── */
+    html { opacity: 0; }
+    html.ready { opacity: 1; transition: opacity .35s ease; }
+
     :root {
       --ink: #0a0a0a;
+      --ink-secondary: #1a1a1a;
       --gray-1: #6b7280;
       --gray-2: #9ca3af;
       --paper: #ffffff;
@@ -24,7 +41,8 @@
       --card-text: #333;
       --caption-color: #666;
       --meta-color: #666;
-      --link-hover: #1d4ed8;
+      --link-color: #1d4ed8;
+      --link-hover: #1e40af;
       --pull-border: #e9e9e9;
       --pull-text: #333;
       --strip-bg: #0a0a0a;
@@ -33,15 +51,19 @@
       --contact-text: #fff;
       --footer-bg: #fbfbfb;
       --footer-text: #666;
+      --search-bg: #f3f4f6;
+      --search-border: #d1d5db;
+      --search-text: #111;
       --max: 1080px;
       --ease: cubic-bezier(.2,.7,0,.98);
       --dur: .8s;
-      --parallax: .06;
+      --nav-height: 48px;
     }
 
     @media (prefers-color-scheme: dark) {
       :root {
         --ink: #f4f4f5;
+        --ink-secondary: #e4e4e7;
         --gray-1: #a1a1aa;
         --gray-2: #71717a;
         --paper: #121214;
@@ -53,7 +75,8 @@
         --card-text: #d4d4d8;
         --caption-color: #a1a1aa;
         --meta-color: #a1a1aa;
-        --link-hover: #60a5fa;
+        --link-color: #60a5fa;
+        --link-hover: #93bbfd;
         --pull-border: #3a3a3a;
         --pull-text: #d4d4d8;
         --strip-bg: #09090b;
@@ -62,12 +85,39 @@
         --contact-text: #f4f4f5;
         --footer-bg: #0f0f10;
         --footer-text: #a1a1aa;
+        --search-bg: #1e1e22;
+        --search-border: #3a3a3a;
+        --search-text: #f4f4f5;
+      }
+    }
+
+    @media (prefers-contrast: more) {
+      :root {
+        --ink: #000;
+        --gray-1: #333;
+        --card-text: #000;
+        --pull-text: #000;
+        --rule: #000;
+        --rule-light: #000;
+        --rule-dot: #555;
+        --link-color: #0000cc;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --ink: #fff;
+          --gray-1: #ccc;
+          --card-text: #fff;
+          --pull-text: #fff;
+          --rule: #fff;
+          --rule-light: #fff;
+          --link-color: #80bfff;
+        }
       }
     }
 
     *, *::before, *::after { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-height) + 16px); }
 
     body {
       background: var(--bg);
@@ -78,21 +128,20 @@
     }
 
     a { color: var(--ink); text-decoration: none; }
-    a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+    a:focus-visible { outline: 2px solid var(--link-color); outline-offset: 3px; }
 
-    /* Skip link */
-    .skip { position: absolute; left: -9999px; top: auto; }
-    .skip:focus { left: 16px; top: 16px; background: var(--paper); padding: 8px 12px; border: 2px solid var(--ink); z-index: 100; }
+    .skip { position: absolute; left: -9999px; top: auto; font: 600 14px/1 Inter, system-ui, sans-serif; }
+    .skip:focus { left: 16px; top: 16px; background: var(--paper); padding: 8px 12px; border: 2px solid var(--ink); z-index: 100; border-radius: 4px; }
 
-    /* Wrapper */
     .wrap {
       max-width: var(--max);
       margin: auto;
       background: var(--paper);
       box-shadow: 0 10px 40px rgba(0,0,0,.06);
+      position: relative;
     }
 
-    /* Top strip */
+    /* ── Strip ── */
     .strip {
       background: var(--strip-bg);
       color: var(--strip-text);
@@ -105,10 +154,10 @@
       letter-spacing: .06em;
       flex-wrap: wrap;
     }
-    .strip a { color: var(--strip-text); opacity: .95; transition: opacity .2s; }
+    .strip a { color: var(--strip-text); opacity: .85; transition: opacity .2s; }
     .strip a:hover { opacity: 1; }
 
-    /* Masthead */
+    /* ── Masthead ── */
     .mast {
       padding: 32px 24px 20px;
       border-bottom: 1px solid var(--rule);
@@ -120,7 +169,7 @@
       left: 24px; right: 24px; top: 0;
       height: 2px;
       background: linear-gradient(90deg, transparent, var(--ink), transparent);
-      opacity: .5;
+      opacity: .35;
     }
     .kicker {
       font: 600 11px/1 Inter, system-ui, sans-serif;
@@ -132,63 +181,84 @@
       font: 900 clamp(48px, 8vw, 96px)/.92 "Playfair Display", serif;
       letter-spacing: .005em;
       margin: 12px 0 6px;
-      text-rendering: optimizeLegibility;
     }
     .edition {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      align-items: center;
-      margin-top: 12px;
-      padding-top: 12px;
+      display: flex; gap: 10px; flex-wrap: wrap; align-items: center;
+      margin-top: 12px; padding-top: 12px;
       border-top: 1px solid var(--rule-dot);
       font: 500 12px/1.4 Inter, system-ui, sans-serif;
       color: var(--gray-1);
-      text-transform: uppercase;
-      letter-spacing: .06em;
+      text-transform: uppercase; letter-spacing: .06em;
     }
 
-    /* Navigation */
+    /* ── Navigation ── */
     nav.nav {
       border-bottom: 2px solid var(--rule);
-      padding: 12px 18px;
-      position: sticky;
-      top: 0;
+      padding: 0 18px;
+      position: sticky; top: 0;
       background: var(--paper);
-      z-index: 10;
+      z-index: 20;
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     nav.nav ul {
       list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-      margin: 0;
-      padding: 0;
+      display: flex; flex-wrap: wrap;
+      gap: 20px; justify-content: center;
+      margin: 0; padding: 0;
     }
+    nav.nav li { display: flex; align-items: center; }
     nav.nav a {
       font: 700 12px/1 Inter, system-ui, sans-serif;
-      letter-spacing: .12em;
-      text-transform: uppercase;
+      letter-spacing: .12em; text-transform: uppercase;
       color: var(--ink);
-      position: relative;
-      padding: 6px 2px;
-      display: inline-block;
+      position: relative; padding: 6px 2px;
     }
     nav.nav a::after {
-      content: "";
-      position: absolute;
-      left: 0; bottom: 0;
-      height: 1.5px;
-      width: 0;
+      content: ""; position: absolute;
+      left: 0; bottom: 0; height: 1.5px; width: 0;
       background: currentColor;
       transition: width .35s var(--ease);
     }
-    nav.nav a:hover::after,
-    nav.nav a:focus-visible::after { width: 100%; }
+    nav.nav a:hover::after, nav.nav a:focus-visible::after { width: 100%; }
     nav.nav a.current { border-bottom: 2px solid var(--ink); }
 
-    /* Hero */
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      background: none; border: none; cursor: pointer;
+      padding: 8px; margin-left: auto;
+      color: var(--ink);
+    }
+    .hamburger svg { display: block; }
+    .hamburger .close { display: none; }
+    .hamburger.open .burger { display: none; }
+    .hamburger.open .close { display: block; }
+
+    @media (max-width: 680px) {
+      nav.nav {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 10px 18px;
+        justify-content: flex-end;
+      }
+      .hamburger { display: block; }
+      nav.nav ul {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        gap: 0;
+        padding: 8px 0 4px;
+      }
+      nav.nav ul.open { display: flex; }
+      nav.nav li { border-bottom: 1px solid var(--rule-light); }
+      nav.nav li:last-child { border-bottom: none; }
+      nav.nav a { display: block; padding: 12px 4px; width: 100%; }
+    }
+
+    /* ── Hero ── */
     .hero {
       display: grid;
       grid-template-columns: 1.15fr .85fr;
@@ -205,81 +275,67 @@
     }
     .deck {
       font: 600 12px/1.4 Inter, system-ui, sans-serif;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      color: var(--gray-1);
-      margin-bottom: 12px;
+      letter-spacing: .16em; text-transform: uppercase;
+      color: var(--gray-1); margin-bottom: 12px;
     }
     .byline {
       font: 600 11px/1 Inter, system-ui, sans-serif;
-      color: var(--gray-1);
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      margin-bottom: 10px;
+      color: var(--gray-1); letter-spacing: .12em;
+      text-transform: uppercase; margin-bottom: 10px;
     }
     .measure { max-width: 72ch; hyphens: auto; }
     .lead:first-letter {
       float: left;
       font: 900 4.4rem "Playfair Display", serif;
-      line-height: .85;
-      margin: .18rem .4rem 0 0;
+      line-height: .85; margin: .18rem .4rem 0 0;
       color: var(--ink);
     }
 
-    /* Hero image */
     .hero figure {
-      margin: 0;
-      position: relative;
-      overflow: hidden;
+      margin: 0; position: relative; overflow: hidden;
       border: 1px solid var(--rule-light);
       box-shadow: 0 12px 28px rgba(0,0,0,.08);
       border-radius: 6px;
       background: var(--rule-light);
     }
+    .hero picture { display: block; }
     .hero img {
-      width: 100%;
-      height: auto;
-      max-height: 560px;
-      object-fit: cover;
-      object-position: center;
+      width: 100%; height: auto; max-height: 560px;
+      object-fit: cover; object-position: center;
       transform: translateZ(0) scale(1.02);
       display: block;
     }
     .caption {
       font: 12px/1.4 Inter, system-ui, sans-serif;
       color: var(--caption-color);
-      margin-top: 6px;
-      padding: 0 8px 8px;
+      margin-top: 6px; padding: 0 8px 8px;
     }
 
-    /* Pull quote */
     .pull {
       border-left: 2px solid var(--pull-border);
-      padding: 14px 0 14px 14px;
-      margin: 16px 0;
+      padding: 14px 0 14px 14px; margin: 16px 0;
     }
     .pull q {
       font: italic 18px/1.5 "Source Serif Pro", serif;
-      color: var(--pull-text);
-      quotes: "\201C" "\201D";
+      color: var(--pull-text); quotes: "\201C" "\201D";
     }
 
-    /* Sections */
+    /* ── Sections (lazy paint) ── */
     .section {
       padding: 30px 24px;
       border-top: 2px solid var(--rule);
+      content-visibility: auto;
+      contain-intrinsic-size: auto 400px;
     }
     .section h3 {
       font: 800 13px/1 Inter, system-ui, sans-serif;
-      text-transform: uppercase;
-      letter-spacing: .18em;
+      text-transform: uppercase; letter-spacing: .18em;
       margin: 2px 0 16px;
       border-top: 1px solid var(--rule-dot);
-      padding-top: 10px;
-      color: var(--ink);
+      padding-top: 10px; color: var(--ink);
     }
 
-    /* Cards grid */
+    /* ── Cards ── */
     .cards {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
@@ -297,27 +353,19 @@
     }
     .card h4 {
       font: 900 22px/1.15 "Playfair Display", serif;
-      margin: 0 0 6px;
-      color: var(--ink);
+      margin: 0 0 6px; color: var(--ink);
     }
     .card .meta {
       font: 600 11px/1 Inter, system-ui, sans-serif;
-      color: var(--gray-1);
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      margin-bottom: 8px;
+      color: var(--gray-1); text-transform: uppercase;
+      letter-spacing: .08em; margin-bottom: 8px;
     }
     .card p { margin: 0; color: var(--card-text); }
-    .card a { color: var(--link-hover); text-decoration: underline; text-underline-offset: 2px; }
-    .card a:hover { text-decoration: none; }
+    .card a { color: var(--link-color); text-decoration: underline; text-underline-offset: 2px; }
+    .card a:hover { text-decoration: none; color: var(--link-hover); }
 
-    /* Lists */
-    .list {
-      display: grid;
-      gap: 0;
-      padding: 0;
-      margin: 0;
-    }
+    /* ── Lists ── */
+    .list { display: grid; gap: 0; padding: 0; margin: 0; }
     .list li {
       list-style: none;
       padding: 10px 0;
@@ -325,29 +373,54 @@
       color: var(--ink);
     }
     .list li:last-child { border-bottom: none; }
-    .list a { color: var(--link-hover); text-decoration: underline; text-underline-offset: 2px; }
-    .list a:hover { text-decoration: none; }
+    .list a { color: var(--link-color); text-decoration: underline; text-underline-offset: 2px; }
+    .list a:hover { text-decoration: none; color: var(--link-hover); }
 
-    /* Publication entries */
+    /* ── Publication entries ── */
     .pub { display: flex; gap: 8px; align-items: flex-start; }
     .pub .n {
       font: 900 26px/1 "Playfair Display", serif;
-      color: var(--gray-2);
-      min-width: 32px;
-      flex-shrink: 0;
+      color: var(--gray-2); min-width: 32px; flex-shrink: 0;
     }
     .pub .body { flex: 1; min-width: 0; }
-    .pub .title {
-      font: 800 17px/1.35 "Playfair Display", serif;
-      color: var(--ink);
-    }
-    .pub .meta {
-      font: italic 13px/1.5 "Source Serif Pro", serif;
-      color: var(--meta-color);
-    }
+    .pub .title { font: 800 17px/1.35 "Playfair Display", serif; color: var(--ink); }
+    .pub .meta { font: italic 13px/1.5 "Source Serif Pro", serif; color: var(--meta-color); }
     .pub .meta strong { color: var(--ink); font-weight: 600; }
 
-    /* Contact section */
+    /* ── Publication search/filter ── */
+    .pub-filter {
+      margin-bottom: 16px;
+      position: relative;
+    }
+    .pub-filter input {
+      width: 100%;
+      padding: 10px 14px 10px 36px;
+      font: 400 15px/1.4 "Source Serif Pro", serif;
+      border: 1px solid var(--search-border);
+      border-radius: 6px;
+      background: var(--search-bg);
+      color: var(--search-text);
+      outline: none;
+      transition: border-color .2s;
+    }
+    .pub-filter input:focus { border-color: var(--link-color); }
+    .pub-filter input::placeholder { color: var(--gray-2); }
+    .pub-filter svg {
+      position: absolute;
+      left: 11px; top: 50%;
+      transform: translateY(-50%);
+      color: var(--gray-2);
+      pointer-events: none;
+    }
+    .pub-empty {
+      display: none;
+      padding: 16px 0;
+      color: var(--gray-1);
+      font-style: italic;
+    }
+    .pub-empty.visible { display: block; }
+
+    /* ── Contact ── */
     .contact {
       background: var(--contact-bg);
       color: var(--contact-text);
@@ -356,38 +429,28 @@
     }
     .contact h3 {
       font: 900 26px/1.2 "Playfair Display", serif;
-      margin: 0 0 16px;
-      color: var(--contact-text);
-      border: none;
-      padding: 0;
-      letter-spacing: 0;
+      margin: 0 0 16px; color: var(--contact-text);
+      border: none; padding: 0; letter-spacing: 0;
       text-transform: none;
     }
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      justify-content: center;
-    }
+    .actions { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
     .actions a {
       border: 1px solid rgba(255,255,255,.28);
       color: #fff;
       font: 600 14px/1 Inter, system-ui, sans-serif;
-      padding: 12px 18px;
-      border-radius: 9999px;
+      padding: 12px 18px; border-radius: 9999px;
       background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
       box-shadow: 0 6px 22px rgba(0,0,0,.18), inset 0 0 0 1px rgba(255,255,255,.08);
       backdrop-filter: blur(3px);
       transition: transform .25s var(--ease), box-shadow .25s var(--ease), background .25s var(--ease), color .25s var(--ease);
     }
     .actions a:hover {
-      background: #fff;
-      color: #0a0a0a;
+      background: #fff; color: #0a0a0a;
       transform: translateY(-2px);
       box-shadow: 0 12px 36px rgba(0,0,0,.25);
     }
 
-    /* Footer */
+    /* ── Footer ── */
     footer {
       border-top: 2px solid var(--rule);
       background: var(--footer-bg);
@@ -397,27 +460,27 @@
       color: var(--footer-text);
     }
 
-    /* Bottom bar — user's custom nav */
-    nav.bottombar {
-      display: flex;
-      align-items: center;
-      background: var(--paper);
-      padding: 10px 20px;
-      border-top: 1px solid var(--rule-light);
+    /* ── Back to top ── */
+    .btt {
+      position: fixed;
+      bottom: 24px; right: 24px;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--ink);
+      color: var(--paper);
+      border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,.2);
+      opacity: 0; transform: translateY(12px);
+      transition: opacity .3s, transform .3s;
+      pointer-events: none;
+      z-index: 30;
     }
-    div.contacts { float: left; }
-    ul.clinks {
-      display: flex;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-    ul.clinks li {
-      padding-left: 10px;
-      padding-right: 10px;
-    }
+    .btt.visible { opacity: 1; transform: none; pointer-events: auto; }
+    .btt:hover { box-shadow: 0 6px 24px rgba(0,0,0,.3); }
+    .btt svg { display: block; }
 
-    /* Responsive */
+    /* ── Responsive ── */
     @media (max-width: 980px) {
       .hero { grid-template-columns: 1fr; }
       .hero > div, .hero > figure { grid-column: auto; }
@@ -432,25 +495,14 @@
     }
 
     @media (max-width: 480px) {
-      nav.nav ul { gap: 12px; }
-      nav.nav a { font-size: 11px; letter-spacing: .08em; }
       .section { padding: 24px 16px; }
       .hero { padding: 20px 16px; }
       .mast { padding: 24px 16px 16px; }
     }
 
-    /* Print */
-    @media print {
-      nav, .strip, .contact { display: none; }
-      .hero, .cards { display: block; }
-      a[href]::after { content: " (" attr(href) ")"; font-size: 90%; }
-      body { background: #fff; color: #000; }
-    }
-
-    /* Animations */
+    /* ── Animations ── */
     .reveal {
-      opacity: 0;
-      transform: translateY(12px);
+      opacity: 0; transform: translateY(12px);
       transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
     }
     .reveal.is-visible { opacity: 1; transform: none; }
@@ -459,18 +511,9 @@
     .hero .deck { animation: fadeUp .8s var(--ease) .12s both; }
     .lead { animation: fadeUp .9s var(--ease) .2s both; }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: none; }
-    }
-    @keyframes titlePop {
-      from { opacity: 0; transform: translateY(8px); }
-      to { opacity: 1; transform: none; }
-    }
-    @keyframes kenburns {
-      0% { transform: scale(1.02); }
-      100% { transform: scale(1.08); }
-    }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:none; } }
+    @keyframes titlePop { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:none; } }
+    @keyframes kenburns { 0% { transform:scale(1.02); } 100% { transform:scale(1.08); } }
     .kenburns { animation: kenburns 14s ease-out both; }
 
     @media (prefers-reduced-motion: reduce) {
@@ -479,6 +522,25 @@
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
       }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    /* ── Print ── */
+    @media print {
+      nav, .strip, .contact, .btt, .pub-filter { display: none; }
+      html { opacity: 1 !important; }
+      body { background: #fff; color: #000; font-size: 11pt; line-height: 1.5; }
+      .wrap { box-shadow: none; max-width: 100%; }
+      .hero { display: block; }
+      .hero figure { max-width: 240px; float: right; margin: 0 0 12px 16px; box-shadow: none; }
+      .cards { display: block; }
+      .card { border: none; padding: 0 0 10px; margin-bottom: 10px; border-bottom: 1px solid #ccc; }
+      .card:hover { transform: none; box-shadow: none; }
+      .section { content-visibility: visible; border-top: 1px solid #999; padding: 16px 0; }
+      a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 9pt; color: #555; word-break: break-all; }
+      a[href^="mailto"]::after { content: " (" attr(href) ")"; font-size: 9pt; color: #555; }
+      h1.name { font-size: 36pt; }
+      .pub .n { font-size: 16pt; }
     }
   </style>
 </head>
@@ -490,8 +552,8 @@
       <div>
         <a href="mailto:asokol@nd.edu">Email</a> <span aria-hidden="true">·</span>
         <a href="https://scholar.google.com/citations?hl=ru&user=wrEaQEQAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener">Scholar</a> <span aria-hidden="true">·</span>
-        <a href="https://github.com/SokolAnn" target="_blank" rel="noopener">GitHub</a> <span aria-hidden="true">·</span>
-        <a href="https://www.linkedin.com/in/sokolann/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/SokolAnn" target="_blank" rel="noopener" rel="me">GitHub</a> <span aria-hidden="true">·</span>
+        <a href="https://www.linkedin.com/in/sokolann/" target="_blank" rel="noopener" rel="me">LinkedIn</a>
       </div>
     </div>
 
@@ -506,6 +568,10 @@
     </header>
 
     <nav class="nav" aria-label="Primary site sections">
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <svg class="burger" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
       <ul>
         <li><a href="#research">Research</a></li>
         <li><a href="#news">News</a></li>
@@ -519,25 +585,28 @@
     <main id="main">
       <section class="hero" id="research">
         <div>
-          <div class="byline">Dissertation · AI for Social Good</div>
+          <div class="byline" aria-label="Research area">Dissertation · AI for Social Good</div>
           <h2>Large Language Models for Scientific Discovery</h2>
           <div class="deck">Conservation, truth-commission archives, and reliable evaluation.</div>
           <p class="lead measure">My dissertation studies how to understand and deploy large language models in real scientific settings. We integrate LLMs with knowledge graphs, examine how people use them in practice, and test how knowledge graphs can improve reasoning, retrieval, and usefulness for applied research. I study, build, and evaluate practical tools with Prof. Nitesh Chawla. I help wildlife scientists find evidence, guide readers through Colombia's Truth Commission archives, and make model evaluation match real work.</p>
           <aside class="pull" aria-label="pull quote"><q>Care first. Then models.</q></aside>
         </div>
         <figure>
-          <img src="https://sokolann.github.io/assets/images/photo_2025-08-22_14-35-15.jpg"
-               alt="Anna Sokol, PhD Student at Notre Dame"
-               width="963" height="1280"
-               loading="lazy" decoding="async" class="kenburns"
-               onerror="this.parentElement.style.display='none'" />
+          <picture>
+            <source srcset="https://sokolann.github.io/assets/images/photo_2025-08-22_14-35-15.jpg" type="image/jpeg" />
+            <img src="https://sokolann.github.io/assets/images/photo_2025-08-22_14-35-15.jpg"
+                 alt="Anna Sokol, PhD Student at Notre Dame"
+                 width="963" height="1280"
+                 loading="eager" decoding="async" class="kenburns"
+                 onerror="this.closest('figure').style.display='none'" />
+          </picture>
           <figcaption class="caption">Anna Sokol · University of Notre Dame</figcaption>
         </figure>
       </section>
 
       <section class="section" id="education">
         <h3>Education</h3>
-        <ul class="list">
+        <ul class="list" role="list">
           <li><strong>Ph.D., Computer Science</strong> — University of Notre Dame · 2022–2027</li>
           <li><strong>M.A., Sociology</strong> — Higher School of Economics · 2016–2018</li>
           <li><strong>B.A., Sociology</strong> — Vladimir State University · 2012–2016</li>
@@ -585,36 +654,41 @@
 
       <section class="section" id="news">
         <h3>Latest News</h3>
-        <ul class="list">
-          <li><strong>2025</strong> — Notre Dame / IBM Technology Ethics Lab Fellows announced. <a href="https://ethics.nd.edu/news-and-events/news/2025-2026-notre-dameibm-technology-ethics-lab-fellows-announced/" target="_blank" rel="noopener">Read</a></li>
-          <li><strong>2025</strong> — DCU Business: Notre Dame–IBM Technology Ethics Lab awards nearly $1M to collaborative projects. <a href="https://business.dcu.ie/notre-dame-ibm-technology-ethics-lab-awards-nearly-1000000-to-build-collaborative-projects/" target="_blank" rel="noopener">Read</a></li>
-          <li><strong>2025</strong> — Graduate Justice Fellows cohort. <a href="https://socialconcerns.nd.edu/current-graduate-justice-fellows/" target="_blank" rel="noopener">Read</a></li>
-          <li><strong>2025</strong> — Graduate Scholar Spotlight: Lucy Family Institute. <a href="https://lucyinstitute.nd.edu/people/graduate-scholars/graduate-scholar-spotlights/graduate-scholar-spotlight-anna-sokol/" target="_blank" rel="noopener">Read</a></li>
-          <li><strong>2024</strong> — Lucy Graduate Scholars cohort. <a href="https://lucyinstitute.nd.edu/people/graduate-scholars/2023-2025-lucy-graduate-scholars-cohort/anna-sokol/" target="_blank" rel="noopener">Read</a></li>
-          <li><strong>2024</strong> — ADSA 2024 Annual Meeting, University of Michigan.</li>
-          <li><strong>2024</strong> — Legacy Project — People. <a href="https://legacyproject.nd.edu/about/people/" target="_blank" rel="noopener">Read</a></li>
+        <ul class="list" role="list" aria-label="News timeline">
+          <li><strong><time datetime="2025">2025</time></strong> — Notre Dame / IBM Technology Ethics Lab Fellows announced. <a href="https://ethics.nd.edu/news-and-events/news/2025-2026-notre-dameibm-technology-ethics-lab-fellows-announced/" target="_blank" rel="noopener">Read</a></li>
+          <li><strong><time datetime="2025">2025</time></strong> — DCU Business: Notre Dame–IBM Technology Ethics Lab awards nearly $1M to collaborative projects. <a href="https://business.dcu.ie/notre-dame-ibm-technology-ethics-lab-awards-nearly-1000000-to-build-collaborative-projects/" target="_blank" rel="noopener">Read</a></li>
+          <li><strong><time datetime="2025">2025</time></strong> — Graduate Justice Fellows cohort. <a href="https://socialconcerns.nd.edu/current-graduate-justice-fellows/" target="_blank" rel="noopener">Read</a></li>
+          <li><strong><time datetime="2025">2025</time></strong> — Graduate Scholar Spotlight: Lucy Family Institute. <a href="https://lucyinstitute.nd.edu/people/graduate-scholars/graduate-scholar-spotlights/graduate-scholar-spotlight-anna-sokol/" target="_blank" rel="noopener">Read</a></li>
+          <li><strong><time datetime="2024">2024</time></strong> — Lucy Graduate Scholars cohort. <a href="https://lucyinstitute.nd.edu/people/graduate-scholars/2023-2025-lucy-graduate-scholars-cohort/anna-sokol/" target="_blank" rel="noopener">Read</a></li>
+          <li><strong><time datetime="2024">2024</time></strong> — ADSA 2024 Annual Meeting, University of Michigan.</li>
+          <li><strong><time datetime="2024">2024</time></strong> — Legacy Project — People. <a href="https://legacyproject.nd.edu/about/people/" target="_blank" rel="noopener">Read</a></li>
         </ul>
       </section>
 
       <section class="section" id="publications">
         <h3>Publications</h3>
-        <ul class="list">
-          <li class="pub"><span class="n">1</span><div class="body"><div class="title">Breaking Language Barriers: Equitable Performance in Multilingual Language Models</div><div class="meta">T. Nagar, G. Khvatskii, <strong>A. Sokol</strong>, N. V. Chawla — NAACL 2025 · arXiv:2508.12662</div></div></li>
-          <li class="pub"><span class="n">2</span><div class="body"><div class="title">Ventana a la Verdad: A Chatbot Application for Navigating The Colombian Truth Commission's Archives</div><div class="meta"><strong>A. Sokol</strong>, M. L. Sisk, J. E. Alvarez, N. Chawla — ACM WSDM 2025</div></div></li>
-          <li class="pub"><span class="n">3</span><div class="body"><div class="title">BenchmarkCards: Standardized Documentation for Large Language Model Benchmarks</div><div class="meta"><strong>A. Sokol</strong>, E. Daly, M. Hind, D. Piorkowski, X. Zhang, N. Moniz, N. Chawla — arXiv:2410.12974 · 2024</div></div></li>
-          <li class="pub"><span class="n">4</span><div class="body"><div class="title">Conformalized Selective Regression</div><div class="meta"><strong>A. Sokol</strong>, N. Moniz, N. Chawla — arXiv:2402.16300 · 2024</div></div></li>
-          <li class="pub"><span class="n">5</span><div class="body"><div class="title">Neural Network Modeling and What-If Scenarios: Applications for Market Development Forecasting</div><div class="meta">V. Kuskova, D. Zaytsev, G. Khvatsky, <strong>A. Sokol</strong> — Springer · 2023</div></div></li>
-          <li class="pub"><span class="n">6</span><div class="body"><div class="title">Searching for Coherence in a Fragmented Field: Temporal and Keywords Network Analysis in Political Science</div><div class="meta">D. G. Zaytsev, V. V. Kuskova, G. S. Khvatsky, <strong>A. A. Sokol</strong> — Network Science · 2023</div></div></li>
-          <li class="pub"><span class="n">7</span><div class="body"><div class="title">Expanding the Boundaries of Interdisciplinary Field: Contribution of Network Science Journal</div><div class="meta">V. V. Kuskova, D. G. Zaytsev, G. S. Khvatsky, <strong>A. A. Sokol</strong>, M. D. Vorobeva, R. A. Kamalov — Network Science · 2023</div></div></li>
-          <li class="pub"><span class="n">8</span><div class="body"><div class="title">Computational Tools of Media Analysis for Corporate Policy Effectiveness Evaluation</div><div class="meta">G. S. Khvatsky, D. G. Zaytsev, V. V. Kuskova, <strong>A. A. Sokol</strong> — Springer · 2022</div></div></li>
-          <li class="pub"><span class="n">9</span><div class="body"><div class="title">Neural network modeling and what-if scenarios: Applications to various-term sales forecasts</div><div class="meta">K. Valentina, Z. Dmitry, S. Anna, K. Gregory — ISSAT RQD · 2021</div></div></li>
-          <li class="pub"><span class="n">10</span><div class="body"><div class="title">Cross-National Comparison of Protest Publics' Roles as Drivers of Change</div><div class="meta">D. G. Zaytsev, A. I. Galina, <strong>A. A. Sokol</strong> — Protest Publics · 2019</div></div></li>
+        <div class="pub-filter">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="search" id="pubSearch" placeholder="Filter publications..." aria-label="Filter publications" />
+        </div>
+        <ul class="list" id="pubList" role="list">
+          <li class="pub"><span class="n" aria-hidden="true">1</span><div class="body"><div class="title">Breaking Language Barriers: Equitable Performance in Multilingual Language Models</div><div class="meta">T. Nagar, G. Khvatskii, <strong>A. Sokol</strong>, N. V. Chawla — NAACL 2025 · arXiv:2508.12662</div></div></li>
+          <li class="pub"><span class="n" aria-hidden="true">2</span><div class="body"><div class="title">Ventana a la Verdad: A Chatbot Application for Navigating The Colombian Truth Commission's Archives</div><div class="meta"><strong>A. Sokol</strong>, M. L. Sisk, J. E. Alvarez, N. Chawla — ACM WSDM 2025</div></div></li>
+          <li class="pub"><span class="n" aria-hidden="true">3</span><div class="body"><div class="title">BenchmarkCards: Standardized Documentation for Large Language Model Benchmarks</div><div class="meta"><strong>A. Sokol</strong>, E. Daly, M. Hind, D. Piorkowski, X. Zhang, N. Moniz, N. Chawla — arXiv:2410.12974 · 2024</div></div></li>
+          <li class="pub"><span class="n" aria-hidden="true">4</span><div class="body"><div class="title">Conformalized Selective Regression</div><div class="meta"><strong>A. Sokol</strong>, N. Moniz, N. Chawla — arXiv:2402.16300 · 2024</div></div></li>
+          <li class="pub"><span class="n" aria-hidden="true">5</span><div class="body"><div class="title">Neural Network Modeling and What-If Scenarios: Applications for Market Development Forecasting</div><div class="meta">V. Kuskova, D. Zaytsev, G. Khvatsky, <strong>A. Sokol</strong> — Springer · 2023</div></div></li>
+          <li class="pub"><span class="n" aria-hidden="true">6</span><div class="body"><div class="title">Searching for Coherence in a Fragmented Field: Temporal and Keywords Network Analysis in Political Science</div><div class="meta">D. G. Zaytsev, V. V. Kuskova, G. S. Khvatsky, <strong>A. A. Sokol</strong> — Network Science · 2023</div></div></li>
+          <li class="pub"><span class="n" aria-hidden="true">7</span><div class="body"><div class="title">Expanding the Boundaries of Interdisciplinary Field: Contribution of Network Science Journal</div><div class="meta">V. V. Kuskova, D. G. Zaytsev, G. S. Khvatsky, <strong>A. A. Sokol</strong>, M. D. Vorobeva, R. A. Kamalov — Network Science · 2023</div></div></li>
+          <li class="pub"><span class="n" aria-hidden="true">8</span><div class="body"><div class="title">Computational Tools of Media Analysis for Corporate Policy Effectiveness Evaluation</div><div class="meta">G. S. Khvatsky, D. G. Zaytsev, V. V. Kuskova, <strong>A. A. Sokol</strong> — Springer · 2022</div></div></li>
+          <li class="pub"><span class="n" aria-hidden="true">9</span><div class="body"><div class="title">Neural network modeling and what-if scenarios: Applications to various-term sales forecasts</div><div class="meta">K. Valentina, Z. Dmitry, S. Anna, K. Gregory — ISSAT RQD · 2021</div></div></li>
+          <li class="pub"><span class="n" aria-hidden="true">10</span><div class="body"><div class="title">Cross-National Comparison of Protest Publics' Roles as Drivers of Change</div><div class="meta">D. G. Zaytsev, A. I. Galina, <strong>A. A. Sokol</strong> — Protest Publics · 2019</div></div></li>
         </ul>
+        <p class="pub-empty" id="pubEmpty">No publications match your search.</p>
       </section>
 
       <section class="section" id="conferences">
         <h3>Conferences</h3>
-        <ul class="list">
+        <ul class="list" role="list">
           <li><strong>NAACL 2025</strong> — Albuquerque, NM, USA</li>
           <li><strong>Doctoral Forum, SIAM SDM25</strong> — 2025</li>
           <li><strong>AAAI 2025</strong> — Philadelphia, PA, USA</li>
@@ -637,7 +711,7 @@
 
       <section class="section" id="appointments">
         <h3>Academic Appointments</h3>
-        <ul class="list">
+        <ul class="list" role="list">
           <li><strong>Graduate Research &amp; Teaching Assistant</strong> — DIAL Laboratory, University of Notre Dame · 2022–present</li>
           <li><strong>Program Deputy Academic Supervisor, MDNA</strong> — ILANR, HSE · 2021–2022</li>
           <li><strong>Research Assistant</strong> — ILANR, HSE · 2017–2020</li>
@@ -646,14 +720,14 @@
 
       <section class="section" id="internships">
         <h3>Academic Internship</h3>
-        <ul class="list">
+        <ul class="list" role="list">
           <li><strong>Open Research Laboratory</strong> — UIUC · Spring 2022</li>
         </ul>
       </section>
 
       <section class="section" id="teaching">
         <h3>Teaching &amp; Academic Service</h3>
-        <ul class="list">
+        <ul class="list" role="list">
           <li><strong>Course Instructor:</strong> Introduction to Analytical Programming — HSE (2022)</li>
           <li><strong>Course Instructor:</strong> Introduction to Data Analytics — HSE (2022)</li>
           <li><strong>Course Instructor:</strong> Practical Regression Analysis — Coursera · HSE (2021)</li>
@@ -666,7 +740,7 @@
 
       <section class="section" id="fellowships">
         <h3>Fellowships &amp; Honors</h3>
-        <ul class="list">
+        <ul class="list" role="list">
           <li><strong>2025:</strong> Tech Ethics Fellowship, University of Notre Dame</li>
           <li><strong>2024–2025:</strong> Graduate Justice Fellowship, University of Notre Dame</li>
           <li><strong>2023–2025:</strong> Lucy Scholar, University of Notre Dame</li>
@@ -676,7 +750,7 @@
 
       <section class="section" id="memberships">
         <h3>Memberships</h3>
-        <ul class="list">
+        <ul class="list" role="list">
           <li>International Network for Social Network Analysis (INSNA), 2020–2022</li>
           <li>International Political Science Association (IPSA), 2020–2022</li>
         </ul>
@@ -684,7 +758,7 @@
 
       <section class="section" id="industry">
         <h3>Industry Experience</h3>
-        <ul class="list">
+        <ul class="list" role="list">
           <li><strong>Business Analyst</strong> — Saint-Gobain Russia · 2019–2020</li>
           <li><strong>Market Analyst</strong> — Nestlé Russia · 2018</li>
           <li><strong>Junior Communication Planner</strong> — Mediacom · 2017–2018</li>
@@ -695,7 +769,7 @@
 
       <section class="section" id="industry-projects">
         <h3>Selected Industry Projects</h3>
-        <ul class="list">
+        <ul class="list" role="list">
           <li>Project management dashboards for Saint-Gobain (Russia &amp; CIS) — 2020</li>
           <li>Market outlooks for coffee machines (Retail &amp; Fuel) — Nestlé — 2019</li>
           <li>Advertising research: shaving &amp; personal care — P&amp;G via Mediacom — 2018</li>
@@ -708,8 +782,8 @@
         <div class="actions">
           <a href="mailto:asokol@nd.edu">Email Anna</a>
           <a href="https://scholar.google.com/citations?hl=ru&user=wrEaQEQAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener">Google Scholar</a>
-          <a href="https://github.com/SokolAnn" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://www.linkedin.com/in/sokolann/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/SokolAnn" target="_blank" rel="noopener" rel="me">GitHub</a>
+          <a href="https://www.linkedin.com/in/sokolann/" target="_blank" rel="noopener" rel="me">LinkedIn</a>
         </div>
       </section>
     </main>
@@ -719,31 +793,55 @@
     </footer>
   </div>
 
+  <!-- Back to top -->
+  <button class="btt" aria-label="Back to top" id="btt">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
   <script>
+    // Page load transition
+    document.documentElement.classList.add('ready');
+
+    // Hamburger menu
+    const hamburger = document.querySelector('.hamburger');
+    const navUl = document.querySelector('nav.nav ul');
+    hamburger.addEventListener('click', () => {
+      const open = hamburger.classList.toggle('open');
+      navUl.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', open);
+    });
+    // Close menu on link click (mobile)
+    navUl.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        navUl.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+
     // Reveal on scroll
-    const revealObserver = new IntersectionObserver((entries) => {
+    const revealObs = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) {
           e.target.classList.add('is-visible');
-          revealObserver.unobserve(e.target);
+          revealObs.unobserve(e.target);
         }
       });
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
-
     document.querySelectorAll('.section, .card, .list li, .pull').forEach(el => {
       el.classList.add('reveal');
-      revealObserver.observe(el);
+      revealObs.observe(el);
     });
 
-    // Parallax on hero image
+    // Parallax hero image
     const heroImg = document.querySelector('.hero img');
     let ticking = false;
-    if (heroImg && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (heroImg && !prefersReduced) {
       document.addEventListener('scroll', () => {
         if (!ticking) {
           requestAnimationFrame(() => {
-            const y = window.scrollY;
-            heroImg.style.transform = `translateY(${y * 0.06}px) scale(1.05)`;
+            heroImg.style.transform = `translateY(${window.scrollY * 0.06}px) scale(1.05)`;
             ticking = false;
           });
           ticking = true;
@@ -751,13 +849,12 @@
       }, { passive: true });
     }
 
-    // Scroll spy for nav
+    // Scroll spy
     const sections = document.querySelectorAll('main section[id]');
     const navLinks = new Map();
     document.querySelectorAll('nav.nav a[href^="#"]').forEach(a => {
       navLinks.set(a.getAttribute('href').replace('#', ''), a);
     });
-
     const spy = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) {
@@ -767,8 +864,34 @@
         }
       });
     }, { rootMargin: '-45% 0px -50% 0px', threshold: 0.01 });
-
     sections.forEach(s => spy.observe(s));
+
+    // Back to top
+    const btt = document.getElementById('btt');
+    const bttObs = new IntersectionObserver(([e]) => {
+      btt.classList.toggle('visible', !e.isIntersecting);
+    }, { threshold: 0 });
+    bttObs.observe(document.querySelector('.hero'));
+    btt.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Publication filter
+    const pubSearch = document.getElementById('pubSearch');
+    const pubList = document.getElementById('pubList');
+    const pubEmpty = document.getElementById('pubEmpty');
+    const pubItems = [...pubList.querySelectorAll('.pub')];
+    pubSearch.addEventListener('input', () => {
+      const q = pubSearch.value.toLowerCase().trim();
+      let visible = 0;
+      pubItems.forEach(li => {
+        const text = li.textContent.toLowerCase();
+        const show = !q || text.includes(q);
+        li.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+      pubEmpty.classList.toggle('visible', visible === 0);
+    });
   </script>
 </body>
 </html>
